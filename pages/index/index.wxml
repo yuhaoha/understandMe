@@ -1,0 +1,34 @@
+<view class='index' style='background: url(http://poyiuxtc4.bkt.clouddn.com/1.jpg)'>
+  <view class='head'>
+    <view class='title'>你懂我吗</view>
+    <view class='desc'>好友揭秘大挑战</view>
+  </view>
+  <view class='body'>
+    <view class='widgets'>
+      <view class='widgets__item-begin'>
+        <view id="begin" class="widgets__info">
+          <text class='widgets__info-name'>开始出题</text>
+          <image class='widgets__info-img' src="http://poyiuxtc4.bkt.clouddn.com/begin.png" background-size="cover"/>
+        </view>
+      </view>
+      <view class='widgets__item-match'>
+        <view id="match" class="widgets__info">
+          <text class='widgets__info-name'>灵魂匹配</text>
+          <image class='widgets__info-img'src="http://poyiuxtc4.bkt.clouddn.com/match.png" background-size="cover"/>
+        </view>
+      </view>
+      <view class='widgets__item-record'>
+        <view id="record" class="widgets__info">
+          <text class='widgets__info-name'>我的记录</text>
+          <image class='widgets__info-img'src="http://poyiuxtc4.bkt.clouddn.com/record.png" background-size="cover"/>
+        </view>
+      </view>
+      <view class='widgets__item-about' bindtap='showAbout'>
+        <view id="about" class="widgets__info">
+          <text class='widgets__info-name'>关于</text>
+          <image class='widgets__info-img'src="http://poyiuxtc4.bkt.clouddn.com/about.png" background-size="cover"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
