@@ -10,7 +10,7 @@
     padding: 40px;
 }
 .title{
-    font-size: 30px;
+    font-size: 50px;
 }
 .desc{
     margin-top: 5px;
@@ -23,7 +23,7 @@
     overflow: hidden;
 }
 .widgets__item-begin{
-    margin-top: 10px;
+    margin-top: 20%;
     margin-bottom: 10px;
     background-color: rgb(247, 231, 141);
     overflow: hidden;
