@@ -1,0 +1,6 @@
+<!--pages/share/share.wxml-->
+<!-- 第一版分享界面 -->
+<view class='body' style='background: url(http://poyiuxtc4.bkt.clouddn.com/qestion-background.jpg)'>
+  <text class='success'>恭喜您，完成答题</text>
+  <text class='success'>点即右上角进行分享</text>
+</view>

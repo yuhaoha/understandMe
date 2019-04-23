@@ -1,0 +1,29 @@
+/* pages/share/share.wxss */
+page{
+  height: 100%
+}
+.body{
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  flex: 1;
+  min-height: 100%;
+  font-size: 30rpx;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow: hidden;
+}
+
+.success{
+  display: flex;
+  justify-content: center; 
+  margin-top: 10%;
+  margin-bottom: 10%;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 35rpx;
+}
+
+.share{
+  margin-left: 35%;
+  margin-right: 35%;
+  border-radius: 30rpx;
+}

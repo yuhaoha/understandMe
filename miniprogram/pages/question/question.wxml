@@ -1,0 +1,17 @@
+<!--pages/question/index.wxml-->
+<view class='body' style='background: url(http://poyiuxtc4.bkt.clouddn.com/qestion-background.jpg)'>
+  <text id='number'>第{{number}}/10题</text>
+  <view class='question'>
+      <text id='title'>{{question.title}}</text>
+      <view class='answer'>
+        <button id='first' bindtap='chooseA' style='color:{{colorA}}'>A.{{question.answer[0]}}</button>
+        <button id='second' bindtap='chooseB' style='color:{{colorB}}'>B.{{question.answer[1]}}</button>
+        <button id='third' bindtap='chooseC' style='color:{{colorC}}' wx:if="{{visiableC==true}}">C.{{question.answer[2]}}</button>
+        <button id='forth' bindtap='chooseD' style='color:{{colorD}}' wx:if="{{visiableD==true}}">D.{{question.answer[3]}}</button>
+      </view>
+  </view>
+  <view class='change'>
+    <button id='previous_question' bindtap='previousQuestion'>上一题</button>
+    <button id='change_question' bindtap='changeQuestion'>换一题</button>
+  </view>
+</view>
