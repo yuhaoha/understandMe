@@ -51,6 +51,25 @@ function changeColor(that) {
   }
 }
 
+// 根据答案长度，设置C D选项是否显示
+function changeVisible(that)
+{
+  var answerLength = questions[current_number - 1].answer.length;
+  if(answerLength==2)
+  {
+    that.setData({
+      visiableC:false,
+      visiableD:false
+    })
+  }
+  else if(answerLength==3)
+  {
+    that.setData({
+      visiableD:false
+    })
+  }
+}
+
 //选择某个选项后，切换到新的页面
 function displayNewPage(that)
 {
@@ -73,41 +92,39 @@ function displayNewPage(that)
     var id = getId();
     questionColl.doc(id).get()
       .then(res => {
-        that.setData({
-          // 传给前端
-          number: current_number,
-          question: res.data,
-          colorA: '#000000',
-          colorB: '#000000',
-          colorC: '#000000',
-          colorD: '#000000'
-        })
         // 存在记录数组中
         questions[current_number - 1] = {
           number: current_number,
           title: res.data.title,
           answer: res.data.answer
         };
+        setNewData(that);
       });
   }
+
   // current_number<max_number，说明用户点击了上一题按钮，展示已浏览的题
   else {
     current_number++;
-    var temp = {
-      title: questions[current_number - 1].title,
-      answer: questions[current_number - 1].answer,
-    };
-    that.setData({
-      number: current_number,
-      question: temp,
-      colorA: '#000000',
-      colorB: '#000000',
-      colorC: '#000000',
-      colorD: '#000000'
-    })
-    // 可能是作答过的题
-    changeColor(that);
+    setNewData(that);
   }
+}
+
+// 改变页面内容
+function setNewData(that)
+{
+  that.setData({
+    // 传给前端
+    number: current_number,
+    question: questions[current_number - 1],
+    colorA: '#000000',
+    colorB: '#000000',
+    colorC: '#000000',
+    colorD: '#000000',
+    visiableC: true,
+    visiableD: true
+  });
+  changeColor(that);
+  changeVisible(that);
 }
 
 // 答完问卷将结果添加到问卷表
@@ -173,19 +190,7 @@ Page({
   // 点击上一题按钮
   previousQuestion: function (e) {
     current_number--;
-    var temp = {
-      title: questions[current_number - 1].title,
-      answer: questions[current_number - 1].answer
-    };
-    this.setData({
-      number: current_number,
-      question: temp,
-      colorA: '#000000',
-      colorB: '#000000',
-      colorC: '#000000',
-      colorD: '#000000'
-    })
-    changeColor(this);
+    setNewData(this);
   },
 
   //点击换一题按钮，换一道新的题目
@@ -193,21 +198,13 @@ Page({
     var id = getId();
     questionColl.doc(id).get()
       .then(res => {
-        this.setData({
-          // 传给前端
-          number: current_number,
-          question: res.data,
-          colorA: '#000000',
-          colorB: '#000000',
-          colorC: '#000000',
-          colorD: '#000000'
-        })
         // 存在记录数组中
         questions[current_number - 1] = {
           number: current_number,
           title: res.data.title,
           answer: res.data.answer
         };
+        setNewData(this);
       });
   },
 
@@ -221,17 +218,13 @@ Page({
     var id = getId();
     questionColl.doc(id).get()
       .then(res => {
-        this.setData({
-          // 传给前端
-          number: current_number,
-          question: res.data
-        })
         // 存在记录数组中
         questions[current_number - 1] = {
           number: current_number,
           title: res.data.title,
           answer: res.data.answer
         };
+        setNewData(this);
       });
   },
 
