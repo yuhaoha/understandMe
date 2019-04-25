@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/question/question",
     "pages/entry/index",
- 
+    "pages/question/question",
     "pages/share/share",
     "pages/index/index",
     "pages/userConsole/userConsole",
