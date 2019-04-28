@@ -1,4 +1,4 @@
-<view class='index' style='background: url(http://poyiuxtc4.bkt.clouddn.com/1.jpg)'>
+<view class='index' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/main_background1.jpg?sign=1b2fa4563c7084fa35bea55d54a066b7&t=1556416222)'>
   <view class='head'>
     <view class='title'>你懂我吗</view>
     <view class='desc'>好友揭秘大挑战</view>
@@ -8,25 +8,25 @@
       <view class='widgets__item-begin'>
         <view id="begin" class="widgets__info">
           <text class='widgets__info-name' bindtap='enterQuestion'>开始出题</text>
-          <image class='widgets__info-img' src="http://poyiuxtc4.bkt.clouddn.com/begin.png" background-size="cover"/>
+          <image class='widgets__info-img' src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/begin.png?sign=0bab15f608c81c038876cea802b4b26f&t=1556416247" background-size="cover"/>
         </view>
       </view>
       <view class='widgets__item-match'>
         <view id="match" class="widgets__info">
           <text class='widgets__info-name'>灵魂匹配</text>
-          <image class='widgets__info-img'src="http://poyiuxtc4.bkt.clouddn.com/match.png" background-size="cover"/>
+          <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
         </view>
       </view>
       <view class='widgets__item-record'>
         <view id="record" class="widgets__info">
           <text class='widgets__info-name'>我的记录</text>
-          <image class='widgets__info-img'src="http://poyiuxtc4.bkt.clouddn.com/record.png" background-size="cover"/>
+          <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/record.png?sign=bcf0dcebf754916bd29b5bee5f9ba3e3&t=1556416343" background-size="cover"/>
         </view>
       </view>
       <view class='widgets__item-about' bindtap='showAbout'>
         <view id="about" class="widgets__info">
           <text class='widgets__info-name'>关于</text>
-          <image class='widgets__info-img'src="http://poyiuxtc4.bkt.clouddn.com/about.png" background-size="cover"/>
+          <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/about.png?sign=9121dd0a395ee2c00fefbd4890db7602&t=1556416283" background-size="cover"/>
         </view>
       </view>
     </view>
