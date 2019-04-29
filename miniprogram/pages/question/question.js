@@ -23,6 +23,7 @@ function getId()
     randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
   }
   visitedArr[visitedIndex] = randomId;
+  visitedIndex++;
   return randomId;
 }
 
