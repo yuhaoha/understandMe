@@ -1,69 +1,178 @@
-// pages/test/test.js
-Page({
+var questionnaireId ; //可从分享页面获得
+//当前题号
+var current_number = 1;
+var max_number = 1;
+//获取数据库引用
+const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+//获取集合引用
+const qnColl = db.collection('questionnaire');
+//存储答题结果的对象数组
+var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    questionnaireId:'未设置'
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (res) {
-    console.log(res);
-    this.setData({
-      questionnaireId: res.questionnaireId
+//将选择过的答案颜色设置为蓝色
+function changeColor(that) {
+  // 如果是新题的话，i=null,不会改变颜色
+  var i = questions[current_number - 1].myChoice;
+  if (i == 0) {
+    that.setData({
+      colorA: '#7B68EE',
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
+  else if (i == 1) {
+    that.setData({
+      colorB: '#7B68EE'
+    })
+  }
+  else if (i == 2) {
+    that.setData({
+      colorC: '#7B68EE'
+    })
+  }
+  else if (i == 3) {
+    that.setData({
+      colorD: '#7B68EE'
+    })
+  }
+}
+
+// 根据答案长度，设置C D选项是否显示
+function changeVisible(that) {
+  var answerLength = questions[current_number - 1].answer.length;
+  if (answerLength == 2) {
+    that.setData({
+      visiableC: false,
+      visiableD: false
+    })
+  }
+  else if (answerLength == 3) {
+    that.setData({
+      visiableD: false
+    })
+  }
+}
+
+//选择某个选项后，切换到新的页面
+function displayNewPage(that) {
+  // 展示新的一题
+  if (current_number == max_number) {
+    current_number++;
+    max_number++;
+    // 已经完成10个题，将问卷存入数据库，跳到分享界面
+    if (current_number == 11) {
+      console.log(questions);
+      addQuestionnaire();
+      return;
+    }
+    setNewData(that);
+  }
+  // current_number<max_number，说明用户点击了上一题按钮，展示已浏览的题
+  else {
+    current_number++;
+    setNewData(that);
+  }
+}
+
+// 改变页面内容
+function setNewData(that) {
+  that.setData({
+    // 传给前端
+    number: current_number,
+    question: questions[current_number - 1],
+    colorA: '#000000',
+    colorB: '#000000',
+    colorC: '#000000',
+    colorD: '#000000',
+    visiableC: true,
+    visiableD: true
+  });
+  changeColor(that);
+  changeVisible(that);
+}
+
+// 答完问卷将结果添加到问卷表
+function addQuestionnaire() {
+  const qnReplyColl = db.collection('reply_questionnaire');
+  qnReplyColl.add({
+    //插入 data字段表示需新增的JSON数据
+    data: {
+      questions: questions,
+      questionnaireId: questionnaireId
+    }
+  })
+    .then(res => {
+      // 跳转到主页面
+      console.log('跳转到主页面')
+      wx.navigateTo({
+        url: '../entry/index',
+      });
+    })
+    .catch(console.error);
+}
+
+Page({
+  data: {
+    colorA: '#000000',
+    colorB: '#000000',
+    colorC: '#000000',
+    colorD: '#000000',
+    // 题号
+    number: 1,
+    // 当前问题，包含title(string) answer(array)
+    question: {
+    },
+    // 是否有C,D选项
+    visiableC: true,
+    visiableD: true
+  },
+
+  // 选择A
+  chooseA: function (e) {
+    // 存储上一题的选项
+    questions[current_number - 1].myChoice = 0;
+    displayNewPage(this);
+  },
+
+  // 选择B
+  chooseB: function (e) {
+    // 存储上一题的选项
+    questions[current_number - 1].myChoice = 1;
+    displayNewPage(this);
+  },
+
+  // 选择C
+  chooseC: function (e) {
+    // 存储上一题的选项
+    questions[current_number - 1].myChoice = 2;
+    displayNewPage(this);
+  },
+
+  // 选择D
+  chooseD: function (e) {
+    // 存储上一题的选项
+    questions[current_number - 1].myChoice = 3;
+    displayNewPage(this);
+  },
+
+  // 点击上一题按钮
+  previousQuestion: function (e) {
+    current_number--;
+    setNewData(this);
+  },
+
+  // 加载页面
+  onLoad: function (res) {
+    // 接收分享界面传来的问卷Id
+    questionnaireId = res.questionnaireId;
+    qnColl.doc(questionnaireId).get()
+      .then(res => {
+        // 存在记录数组中
+        questions = res.data.questions;
+        for(var i=0;i<10;i++)
+        {
+          questions[i]['myChoice'] = null;
+        }
+        setNewData(this);
+      });
+  },
+
 })
