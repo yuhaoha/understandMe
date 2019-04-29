@@ -5,13 +5,13 @@
   </view>
   <view class='body'>
     <view class='widgets'>
-      <view class='widgets__item-begin'>
+      <view class='widgets__item-begin' bindtap='enterQuestion'>
         <view id="begin" class="widgets__info">
-          <text class='widgets__info-name' bindtap='enterQuestion'>开始出题</text>
+          <text class='widgets__info-name' >开始出题</text>
           <image class='widgets__info-img' src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/begin.png?sign=0bab15f608c81c038876cea802b4b26f&t=1556416247" background-size="cover"/>
         </view>
       </view>
-      <view class='widgets__item-match'>
+      <view class='widgets__item-match' bindtap='soulMatch'>
         <view id="match" class="widgets__info">
           <text class='widgets__info-name'>灵魂匹配</text>
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
