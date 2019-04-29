@@ -13,6 +13,11 @@ Page({
       url: '../question/question',
     })
   },
+  soulMatch: function () {
+    wx.redirectTo({
+      url: '../soulMatch/soulMatch',
+    })
+  },
   showAbout: function(){
     wx.showModal({
       title: '关于我们',
