@@ -1,0 +1,4 @@
+<!--pages/test/test.wxml-->
+<text>下面是获取到的问卷ID\n</text>
+<text>{{questionnaireId}}</text>
+  

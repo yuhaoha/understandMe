@@ -3,6 +3,7 @@
     "pages/entry/index",
     "pages/question/question",
     "pages/share/share",
+    "pages/reply/reply",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
