@@ -1,4 +1,5 @@
-var questionnaireId ; //可从分享页面获得
+// pages/reply/content/content.js
+var questionnaireId; //可从分享页面获得
 //当前题号
 var current_number = 1;
 var max_number = 1;
@@ -100,10 +101,11 @@ function addQuestionnaire() {
     }
   })
     .then(res => {
-      // 跳转到主页面
-      console.log('跳转到主页面')
-      wx.navigateTo({
-        url: '../entry/index',
+      // 跳转到答题结果页面，传递答题问卷ID作为参数
+      var replyQnId = res._id;
+      console.log('答题问卷ID：' + replyQnId);
+      wx.redirectTo({
+        url: '/pages/reply/result/result?replyQnId=' + replyQnId,
       });
     })
     .catch(console.error);
@@ -167,8 +169,7 @@ Page({
       .then(res => {
         // 存在记录数组中
         questions = res.data.questions;
-        for(var i=0;i<10;i++)
-        {
+        for (var i = 0; i < 10; i++) {
           questions[i]['myChoice'] = null;
         }
         setNewData(this);

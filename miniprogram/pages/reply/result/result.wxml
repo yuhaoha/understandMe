@@ -1,0 +1,11 @@
+<!--pages/reply/result/result.wxml-->
+<view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
+
+  <view class='description'>
+    <text class='title'>你与 头像 昵称 的默契程度</text>
+    <text class='title'> {{rate}}%</text>
+  </view>
+  <button bindtap='lookAnswer' class='buttonLook'> ta的答案 </button>
+  <button bindtap='homePage' class='buttonHome'>返回首页</button>
+
+</view>

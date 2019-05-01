@@ -1,4 +1,4 @@
-/* pages/reply/reply.wxss */
+/* pages/reply/content/content.wxss */
 
 .body{
   font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;

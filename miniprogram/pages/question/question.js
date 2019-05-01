@@ -141,7 +141,7 @@ function addQuestionnaire() {
       console.log('跳转到分享页面')
       console.log(questionnaireId)
       wx.navigateTo({
-        url: '../share/share?questionnaireId=' + questionnaireId,
+        url: '/pages/share/share?questionnaireId=' + questionnaireId,
       });
     })
     .catch(console.error);
