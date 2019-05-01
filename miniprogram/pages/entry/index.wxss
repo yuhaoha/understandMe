@@ -7,20 +7,21 @@ height:100%
 }
 
 .index{
-    /* background-color: #FBF9FE; */
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-    flex: 1;
     min-height: 100%;
-    font-size: 16px;
 }
 .head{
     padding: 40px;
+    float: left;
 }
 .title{
+    font-family: 'MF SuBai(Noncomercial)';
+    font-style: normal;
+    font-weight: normal;
     font-size: 50px;
+    color: slategray
 }
 .desc{
-    margin-top: 5px;
+    margin-top: 15px;
     color: #888888;
     font-size: 14px;
 }
@@ -28,6 +29,8 @@ height:100%
     padding-left: 15px;
     padding-right: 15px;
     overflow: hidden;
+    float: left;
+    width: 92%;
 }
 .widgets__item-begin{
     margin-top: 20%;
@@ -69,8 +72,27 @@ height:100%
 }
 .widgets__info-name{
     flex: 1;
+    color: white;
 }
 .widgets__info-img{
     width: 30px;
     height: 30px;
+}
+.infoview{
+  margin-right: 10px;
+}
+.headview{
+  height: 100rpx;
+  width: 100rpx;
+  float: right;
+  margin-top: 52px;
+  margin-right: 10px;
+  display:block; 
+  overflow:hidden; 
+  border-radius: 50%;
+}
+.nickname{
+  color: #888888;
+  font-size: 14px;
+  margin-left: 24px;
 }

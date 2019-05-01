@@ -22,5 +22,6 @@
     "navigationBarTitleText": "你懂我吗",
     "navigationBarTextStyle": "black"
   },
-  "cloud": true
+  "cloud": true,
+  "sitemapLocation": "sitemap.json"
 }

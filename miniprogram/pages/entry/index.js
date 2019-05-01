@@ -52,5 +52,10 @@ Page({
         }
       })
     }
+    wx.loadFontFace({
+      family: 'MF SuBai(Noncomercial)',
+      source: 'url("https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/font/MFSuBaiNoncommercial-Regular.ttf?sign=a2ff58632a01d9b39e2881e3c1fee9bb&t=1556704015")',
+      success: console.log
+    })
   }
 })
