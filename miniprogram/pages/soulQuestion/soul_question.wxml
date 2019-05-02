@@ -1,0 +1,34 @@
+<!--pages/question/index.wxml-->
+<view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
+  <block wx:if="{{number<=10}}">
+  <text id='number'>第{{number}}/10题</text>
+  <view class='question'>
+      <text id='title'>{{question.title}}</text>
+      <view class='answer'>
+        <button id='first' bindtap='chooseA' style='color:{{colorA}}'>
+        A.{{question.answer[0]}}</button>
+        <button id='second' bindtap='chooseB' style='color:{{colorB}}'>
+        B.{{question.answer[1]}}</button>
+        <button id='third' bindtap='chooseC' style='color:{{colorC}}' wx:if="{{visiableC==true}}">
+        C.{{question.answer[2]}}</button>
+        <button id='forth' bindtap='chooseD' style='color:{{colorD}}' wx:if="{{visiableD==true}}">
+        D.{{question.answer[3]}}</button>
+      </view>
+  </view>
+  <view class='change'>
+    <button id='previous_question' bindtap='previousQuestion'>上一题</button>
+    <button id='change_question' bindtap='changeQuestion'>换一题</button>
+  </view>
+  </block>
+  <block wx:if="{{number===11}}">
+  <text id='number'>请输入您的微信号，契合您的灵魂会加您的好友哦</text>
+  <view class="section">
+  <view class="section__title">你输入的是：{{inputValue}}</view>
+  <input bindinput="bindKeyInput" placeholder="输入同步到view中" />
+  <view class="submit" style="background-color:#fbf9fe">
+  <button id='sumit_button' bindtap="submit_button">提交</button>
+  <button id='cancel_button' bindtap="cancel_button">取消</button>
+  </view>
+  </view>
+  </block>
+</view>

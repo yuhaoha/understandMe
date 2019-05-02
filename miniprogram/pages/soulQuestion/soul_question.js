@@ -5,6 +5,7 @@ var visitedIndex = 0;
 //当前题号
 var current_number = 1; 
 var max_number = 1;
+var wx_number = 0;
 //获取数据库引用
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 //获取集合引用
@@ -79,16 +80,6 @@ function displayNewPage(that)
     current_number++;
     max_number++;
     // 已经完成10个题，将问卷存入数据库，跳到分享界面
-    if(current_number==11)
-    {
-      console.log(questions);
-      addQuestionnaire();
-      // 跳转到分享页面
-      wx.redirectTo({
-        url: '../share/share',
-      });
-      return;
-    }
     // 随机获取1-15之间的记录
     var id = getId();
     questionColl.doc(id).get()
@@ -130,11 +121,12 @@ function setNewData(that)
 
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
-  const questionnaireColl = db.collection('questionnaire');
+  const questionnaireColl = db.collection('soul_questionnaire');
   questionnaireColl.add({
     //插入 data字段表示需新增的JSON数据
     data: {
-      questions: questions
+      questions: questions,
+      weixin:wx_number
     }
   })
     .then(res => {
@@ -157,6 +149,41 @@ Page({
     // 是否有C,D选项
     visiableC:true,
     visiableD:true
+  },
+  bindKeyInput(e) {
+    wx_number = e.detail.value;
+  },
+  //灵魂匹配出题提交按钮
+  submit_button:function(){
+    //if (current_number == 12) {
+      console.log(questions);
+      addQuestionnaire();
+      console.log("****************");
+      console.log()
+      visitedArr = [];
+      visitedIndex = 0;
+      //当前题号
+      current_number = 1;
+      max_number = 1;
+      questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+      // 跳转到分享页面
+      wx.redirectTo({
+        url: '../soulMatch/soulMatch',
+      });
+      return;
+    //}
+  },
+  //灵魂匹配出题取消
+  cancel_button:function(){
+    visitedArr = [];
+    visitedIndex = 0;
+    //当前题号
+    current_number = 1;
+    max_number = 1;
+    questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+    wx.redirectTo({
+      url: '../soulMatch/soulMatch',
+    })
   },
 
   // 选择A
@@ -216,11 +243,6 @@ Page({
 
   // 加载页面
   onLoad: function (options) {
-    questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
-    visitedArr = new Array();
-    visitedIndex = 0;
-    current_number = 1;
-    max_number = 1;
     var id = getId();
     questionColl.doc(id).get()
       .then(res => {

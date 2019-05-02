@@ -14,6 +14,12 @@ Page({
     question_naire: [{_openid:1234234}]
   },
 
+  submit_question: function () {
+    wx.redirectTo({
+      url: '../soulQuestion/soul_question',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
