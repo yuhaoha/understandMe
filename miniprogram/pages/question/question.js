@@ -1,5 +1,6 @@
 // pages/question/question.js
 //浏览过的题目编号数组，包括做过的和换掉的，目的是换一题可以遇到没做过的题
+var questionnaireId;
 var visitedArr = new Array();
 var visitedIndex = 0;
 //当前题号
@@ -83,10 +84,6 @@ function displayNewPage(that)
     {
       console.log(questions);
       addQuestionnaire();
-      // 跳转到分享页面
-      wx.redirectTo({
-        url: '../share/share',
-      });
       return;
     }
     // 随机获取1-15之间的记录
@@ -137,8 +134,15 @@ function addQuestionnaire() {
       questions: questions
     }
   })
-    .then(res => {
+    .then(res => {  
       console.log(res)
+      questionnaireId = res._id
+      // 跳转到分享页面
+      console.log('跳转到分享页面')
+      console.log(questionnaireId)
+      wx.navigateTo({
+        url: '/pages/share/share?questionnaireId=' + questionnaireId,
+      });
     })
     .catch(console.error);
 }

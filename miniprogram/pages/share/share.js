@@ -1,25 +1,5 @@
 // pages/share/share.js
-
-function share(){
-  return {
-    title: '你懂我吗？',
-    path: '/page/index/index?id=123',
-    success: function (res) {
-      console.log(res.shareTickets[0])
-      // console.log
-      wx.getShareInfo({
-        shareTicket: res.shareTickets[0],
-        success: function (res) { console.log(res) },
-        fail: function (res) { console.log(res) },
-        complete: function (res) { console.log(res) }
-      })
-    },
-    fail: function (res) {
-      // 分享失败
-      console.log(res)
-    }
-  }
-}
+var questionnaireId;
 Page({
 
   /**
@@ -33,19 +13,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (res) {
+    // 分享按钮打开
     wx.showShareMenu({
       withShareTicket: true,
       success: function (res) {
         // 分享成功
-        console.log('shareMenu share success')
-        console.log('分享' + res)
       },
       fail: function (res) {
         // 分享失败
-        console.log(res)
       }
     })
+    console.log('***********')
+    // 传过来的问卷ID参数
+    console.log(res.questionnaireId) //.questionnaireId
+    questionnaireId = res.questionnaireId;
   },
 
   /**
@@ -93,7 +75,36 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    share();
+  onShareAppMessage: function (res) {
+    if(res.from=='button')
+    {
+      console.log('from tag button');
+      console.log(res.target);
+      console.log(res.webViewUrl);
+    }
+    return {
+      // 转发时显示的标题
+      title: '有人@我 你懂我吗？',
+      // 点击的人显示的页面及参数
+      path: '/pages/reply/entry/entry?questionnaireId=' + questionnaireId,
+      // 转发时显示的图片
+      imageUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/share.png?sign=9fbfbd9af2a6af87b88e2f129348e8fc&t=1556452619',
+      success: function (res) {
+        // 分享成功
+        console.log('分享成功')
+        console.log(res.shareTickets[0])
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: function (res) { console.log(res) },
+          fail: function (res) { console.log(res) },
+          complete: function (res) { console.log(res) }
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log('分享失败')
+        console.log(res)
+      }
+    }
   }
 })

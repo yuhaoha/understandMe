@@ -1,0 +1,19 @@
+<!--pages/reply/entry/entry.wxml-->
+<view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
+
+  <text class='title'>你与 头像 昵称 的默契测试</text>
+  <view class='description'>
+    <view class='content'>
+      <view>
+        <text class='text'>你是不是真的懂我</text>
+      </view>
+      <view>
+        <text class='text'>快来猜猜我的答案吧</text>
+      </view>
+    </view>
+    <text class='number'> 共10题</text>
+  </view>
+  <button bindtap='replyQuestion' class='buttonStart'> 开始测试 </button>
+  <button bindtap='homePage' class='buttonHome'>返回首页</button>
+
+</view>

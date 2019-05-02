@@ -3,6 +3,9 @@
     "pages/entry/index",
     "pages/question/question",
     "pages/share/share",
+    "pages/reply/entry/entry",
+    "pages/reply/content/content",
+    "pages/reply/result/result",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -19,5 +22,6 @@
     "navigationBarTitleText": "你懂我吗",
     "navigationBarTextStyle": "black"
   },
-  "cloud": true
+  "cloud": true,
+  "sitemapLocation": "sitemap.json"
 }
