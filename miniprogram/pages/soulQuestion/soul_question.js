@@ -12,6 +12,9 @@ const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 const questionColl = db.collection('question');
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+var username = ''
+var gender = ''
+var avatar_url = ''
 
 // 随机获取某个题目id
 function getId()
@@ -123,16 +126,19 @@ function setNewData(that)
 function addQuestionnaire() {
   const questionnaireColl = db.collection('soul_questionnaire');
   questionnaireColl.add({
-    //插入 data字段表示需新增的JSON数据
     data: {
       questions: questions,
-      weixin:wx_number
+      weixin: wx_number,
+      username:username,
+      gender:gender,
+      avatar_url:avatar_url
     }
   })
     .then(res => {
-      console.log(res)
+      //console.log(res._id)
     })
-    .catch(console.error);
+    .catch(console.error); 
+  
 }
 
 Page({
@@ -155,23 +161,18 @@ Page({
   },
   //灵魂匹配出题提交按钮
   submit_button:function(){
-    //if (current_number == 12) {
-      console.log(questions);
-      addQuestionnaire();
-      console.log("****************");
-      console.log()
-      visitedArr = [];
-      visitedIndex = 0;
+    addQuestionnaire();
+    visitedArr = [];
+    visitedIndex = 0;
       //当前题号
-      current_number = 1;
-      max_number = 1;
-      questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
-      // 跳转到分享页面
-      wx.redirectTo({
-        url: '../soulMatch/soulMatch',
-      });
-      return;
-    //}
+    current_number = 1;
+    max_number = 1;
+    questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+      // 跳转到匹配页面
+    wx.redirectTo({
+      url: '../soulMatch/soulMatch',
+    });
+    return;
   },
   //灵魂匹配出题取消
   cancel_button:function(){
@@ -242,7 +243,10 @@ Page({
    */
 
   // 加载页面
-  onLoad: function (options) {
+  onLoad: function (res) {
+    username = res.username
+    gender = res.gender
+    avatar_url = res.avatarUrl
     var id = getId();
     questionColl.doc(id).get()
       .then(res => {

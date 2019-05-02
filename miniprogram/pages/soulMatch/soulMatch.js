@@ -2,7 +2,7 @@
 //获取数据库引用
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 //获取集合引用
-const question_naires = db.collection('questionnaire');
+const question_naires = db.collection('soul_questionnaire');
 var question_naire_temp
 
 Page({
@@ -13,17 +13,28 @@ Page({
   data: {
     question_naire: [{_openid:1234234}]
   },
-
+//出题进入出题页面
   submit_question: function () {
-    wx.redirectTo({
-      url: '../soulQuestion/soul_question',
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              wx.navigateTo({
+                url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl
+              })
+            }
+          })
+        }
+      }
     })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (res) {
     var that = this
     question_naires.get({
       success: function(res){
