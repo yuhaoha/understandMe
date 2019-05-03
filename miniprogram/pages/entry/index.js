@@ -16,7 +16,7 @@ Page({
   },
 
   soulMatch: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../soulMatch/soulMatch',
     })
   },
