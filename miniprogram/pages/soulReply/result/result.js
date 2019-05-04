@@ -6,6 +6,9 @@ var replyQnId;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 // 答题集合
 const replyColl = db.collection('reply_soul_questionnaire');
+// 对应的出题集合
+const submitColl = db.collection('soul_questionnaire');
+// 出题人微信号
 
 Page({
 
@@ -15,7 +18,8 @@ Page({
   data: {
     rate:0,
     nickname:'',
-    head_photo:''
+    head_photo:'',
+    wx_number:0
   },
 
   // 查看出题者答案,跳到记录页面
@@ -31,11 +35,14 @@ Page({
   },
 
   onLoad: function (res) {
+    var that = this
     replyQnId = res.replyQnId;
     this.setData({
       head_photo:res.head_photo,
-      nickname:res.nickname
+      nickname:res.nickname,
+      wx_number:res.wx_number
     })
+    console.log(this.data)
     replyColl.doc(replyQnId).get()
       .then(res => {
         var questions = res.data.questions;
@@ -48,7 +55,7 @@ Page({
             rate = rate + 10;
           }
         }
-        console.log('rate:'+rate);
+        
         this.setData({
           rate:rate
         })

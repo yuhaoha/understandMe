@@ -15,6 +15,8 @@ var submit_people_questionnaire;
 var head_photo;
 //匹配问卷人的昵称
 var nickname;
+// 匹配问卷人的微信
+var wx_number;
 
 //将选择过的答案颜色设置为蓝色
 function changeColor(that) {
@@ -66,7 +68,7 @@ function displayNewPage(that) {
     max_number++;
     // 已经完成10个题，将问卷存入数据库，跳到分享界面
     if (current_number == 11) {
-      console.log(questions);
+      //console.log(questions);
       addQuestionnaire();
       return;
     }
@@ -111,7 +113,7 @@ function addQuestionnaire() {
       var replyQnId = res._id;
       console.log('答题问卷ID：' + replyQnId);
       wx.redirectTo({
-        url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo
+        url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo + '&wx_number=' + wx_number
       });
     })
     .catch(console.error);
@@ -173,8 +175,10 @@ Page({
     submit_people_questionnaire = JSON.parse(res.submit_people_questionnaire);
     head_photo = submit_people_questionnaire.avatar_url
     nickname = submit_people_questionnaire.username
+    wx_number = submit_people_questionnaire.weixin
     // 获取问卷id
     questionnaireId = submit_people_questionnaire._id;
+    console.log(questionnaireId)
     qnColl.doc(questionnaireId).get()
       .then(res => {
         // 存在记录数组中
@@ -184,6 +188,12 @@ Page({
         }
         setNewData(this);
       });
+  },
+
+  onUnload: function () {
+    current_number = 1;
+    max_number = 1;
+    questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
   },
 
 })

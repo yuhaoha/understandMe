@@ -45,7 +45,7 @@ Page({
   answer_question:function(){
     question_naires.doc(choose_id).get({
       success(res){
-        console.log(res.data)
+        //console.log(res.data)
         //将对象转为string
         var submit_people_questionnaire = JSON.stringify(res.data)
         wx.navigateTo({
@@ -68,7 +68,7 @@ Page({
         //console.log(that.data.question_naire)
       },
       fail:function(res){
-        console.log(res.data)
+        //console.log(res.data)
       }
     })
   },

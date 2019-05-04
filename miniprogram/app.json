@@ -13,7 +13,8 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/soulMatch/soulMatch"
+    "pages/soulMatch/soulMatch",
+    "pages/soulReply/result/result"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
