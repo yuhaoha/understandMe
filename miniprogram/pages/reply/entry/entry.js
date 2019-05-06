@@ -1,4 +1,5 @@
 // pages/reply/entry/entry.js
+const app = getApp()
 // 传来的问卷Id
 var questionnaireId;
 //获取数据库引用
@@ -11,14 +12,19 @@ const qnColl = db.collection('questionnaire');
 Page({
 
   data: {
-    openid:''
+    openid:'',
+    avatarUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/user-unlogin.png?sign=fa83cd1525c7b0ad18c93e95b53e148a&t=1556781942',
+    nickName: '',
   },
 
   // 开始答题
   replyQuestion:function(e)
   {
+    var nickName = this.data.nickName;
+    var avatarUrl = this.data.avatarUrl;
+    var openid = this.data.openid;
     wx.redirectTo({
-      url: '/pages/reply/content/content?questionnaireId=' + questionnaireId,
+      url: '/pages/reply/content/content?questionnaireId=' + questionnaireId + '&nickName=' + nickName + '&avatarUrl=' + avatarUrl+ '&openid=' + openid,
     })
   },
 
@@ -35,6 +41,23 @@ Page({
     // 获取问卷ID
     questionnaireId = res1.questionnaireId;
     console.log('分享的问卷ID：' + questionnaireId);
+    // 获取用户头像，昵称
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                nickName: res.userInfo.nickName,
+              })
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
   },
 
   onShow:function(){
@@ -53,16 +76,18 @@ Page({
           .then(res => {
             // 出题人的id
             var raiseId = res.data._openid;
+            console.log('*******当前openid:'+openid);
             // 写反的！！为了调试，到时候改一下
-            if (openid != raiseId) {
+            if (openid == raiseId) {
               console.log('出题人和答题人相同哦')
-              // wx.redirectTo({
-              //   url: '/pages/entry/index',
-              // })
+              wx.redirectTo({
+                url: '/pages/entry/index',
+              })
             }
 
             //答别人的问卷，在答题数据库中查询是否答过题
             else {
+              console.log('出题人和答题人不同');
               replyColl.where({
                 _openid: openid,
                 questionnaireId: questionnaireId
@@ -88,6 +113,4 @@ Page({
     })
   },
 
-
-  
 })

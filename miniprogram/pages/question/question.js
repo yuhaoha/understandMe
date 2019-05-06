@@ -1,5 +1,8 @@
 // pages/question/question.js
 //浏览过的题目编号数组，包括做过的和换掉的，目的是换一题可以遇到没做过的题
+const app = getApp()
+var nickName; //出题者昵称
+var avatarUrl; //出题者头像
 var questionnaireId;
 var visitedArr = new Array();
 var visitedIndex = 0;
@@ -131,7 +134,9 @@ function addQuestionnaire() {
   questionnaireColl.add({
     //插入 data字段表示需新增的JSON数据
     data: {
-      questions: questions
+      questions: questions,
+      nickName:nickName,
+      avatarUrl:avatarUrl
     }
   })
     .then(res => {  
@@ -220,6 +225,20 @@ Page({
 
   // 加载页面
   onLoad: function (options) {
+    // 设置头像 昵称
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+             avatarUrl = res.userInfo.avatarUrl;
+             nickName = res.userInfo.nickName;
+            }
+          })
+        }
+      }
+    })
     questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
     visitedArr = new Array();
     visitedIndex = 0;

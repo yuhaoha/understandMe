@@ -1,5 +1,10 @@
 // pages/reply/content/content.js
 var questionnaireId; //可从分享页面获得
+var nickName; //用户名
+var avatarUrl;  //用户头像 
+var raiseOpenid; //出题者openid
+var raiseNickName; //出题者昵称
+var raiseAvatarUrl; //出题者头像
 //当前题号
 var current_number = 1;
 var max_number = 1;
@@ -93,11 +98,23 @@ function setNewData(that) {
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
   const qnReplyColl = db.collection('reply_questionnaire');
+  var rate = 0;
+  for (var i = 0; i < 10; i++) {
+    if (questions[i]['choice'] == questions[i]['myChoice']) {
+      rate = rate + 10;
+    }
+  }
   qnReplyColl.add({
     //插入 data字段表示需新增的JSON数据
     data: {
       questions: questions,
-      questionnaireId: questionnaireId
+      questionnaireId: questionnaireId,
+      raiseOpenid:raiseOpenid,
+      raiseAvatarUrl:raiseAvatarUrl,
+      raiseNickName:raiseNickName,
+      replyNickName: nickName,
+      replyAvatarUrl: avatarUrl,
+      rate:rate
     }
   })
     .then(res => {
@@ -165,8 +182,15 @@ Page({
   onLoad: function (res) {
     // 接收分享界面传来的问卷Id
     questionnaireId = res.questionnaireId;
+    nickName = res.nickName;
+    avatarUrl = res.avatarUrl;
+    console.log('昵称：'+nickName+' 头像：'+avatarUrl);
     qnColl.doc(questionnaireId).get()
       .then(res => {
+        // 记录出题者的openid
+        raiseOpenid = res.data._openid;
+        raiseAvatarUrl = res.data.avatarUrl;
+        raiseNickName = res.data.nickName;
         // 存在记录数组中
         questions = res.data.questions;
         for (var i = 0; i < 10; i++) {

@@ -33,19 +33,8 @@ Page({
     replyQnId = res.replyQnId;
     replyColl.doc(replyQnId).get()
       .then(res => {
-        var questions = res.data.questions;
-        // 相同率
-        var rate=0;
-        for(var i =0;i<10;i++)
-        {
-          if(questions[i]['choice']==questions[i]['myChoice'])
-          {
-            rate = rate + 10;
-          }
-        }
-        console.log('rate:'+rate);
         this.setData({
-          rate:rate
+          rate:res.data.rate
         })
       })
   },
