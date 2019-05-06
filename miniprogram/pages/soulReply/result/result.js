@@ -42,7 +42,6 @@ Page({
       nickname:res.nickname,
       wx_number:res.wx_number
     })
-    console.log(this.data)
     replyColl.doc(replyQnId).get()
       .then(res => {
         var questions = res.data.questions;

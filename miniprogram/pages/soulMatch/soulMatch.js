@@ -24,7 +24,7 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              wx.redirectTo({
+              wx.navigateTo({
                 url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl
               })
             }
@@ -41,7 +41,6 @@ Page({
     this.setData({
       clickID:e.currentTarget.id
     })
-    console.log(choose_id)
   }, 
 
   // 开始答题匹配

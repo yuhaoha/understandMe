@@ -218,6 +218,9 @@ Page({
 
   // 点击上一题按钮
   previousQuestion: function (e) {
+    if(current_number == 1){
+      return
+    }
     current_number--;
     setNewData(this);
   },
@@ -285,7 +288,16 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    visitedArr = [];
+    visitedIndex = 0;
+    //当前题号
+    current_number = 1;
+    max_number = 1;
+    wx_number = 0;
+    questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+    username = ''
+    gender = ''
+    avatar_url = ''
   },
 
   /**
