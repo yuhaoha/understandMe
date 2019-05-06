@@ -1,12 +1,27 @@
 <!--pages/question/index.wxml-->
 <view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
-  <view class='list-item' wx:for='{{question_naire}}' data-id='{{item._id}}' bindtap='choose_question'>
-    <image class='left'   
-    src='{{item.avatar_url}}'></image>
-    <view class='right'>
-      <text id='name'>{{item.username}}</text>
-    </view>
+  <block wx:for='{{question_naire}}'>
+  <view id='{{index}}' data-id='{{item._id}}' bindtap='choose_question'>
+    <block wx:if='{{index == clickID}}'>
+      <view class='list-item' style='background:grey'>
+        <image class='left'   
+        src='{{item.avatar_url}}'></image>
+        <view class='right'>
+          <text id='name'>{{item.username}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='list-item'>
+        <image class='left'   
+        src='{{item.avatar_url}}'></image>
+        <view class='right'>
+          <text id='name'>{{item.username}}</text>
+        </view>
+      </view>
+    </block>
   </view>
+  </block>
   <view class='question-answer'>
     <button id='submit_question' bindtap='submit_question'>我的灵魂</button>
     <button id='answer_question' bindtap='answer_question'>开始匹配</button>

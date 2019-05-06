@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    question_naire: [{_openid:1234234}]
+    clickID:0
   },
 //出题进入出题页面
   submit_question: function () {
@@ -38,6 +38,9 @@ Page({
   // 选择问卷
   choose_question:function(e){
     choose_id = e.currentTarget.dataset.id
+    this.setData({
+      clickID:e.currentTarget.id
+    })
     console.log(choose_id)
   }, 
 
@@ -63,9 +66,8 @@ Page({
     // 获取问卷
     question_naires.get({
       success: function(res){
-        const number= res.data.length
         that.setData({question_naire:res.data})
-        //console.log(that.data.question_naire)
+        console.log(res.data)
       },
       fail:function(res){
         //console.log(res.data)
