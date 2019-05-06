@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    clickID:0
+    clickID:-1
   },
 //出题进入出题页面
   submit_question: function () {

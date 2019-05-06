@@ -6,7 +6,7 @@
     <image class='head_photo' src='{{head_photo}}'></image><text>{{nickname}} 的灵魂契合程度</text>
     <text class='title'> {{rate}}%</text>
   </view>
-  <button bindtap='lookAnswer' class='buttonLook'> ta的答案 </button>
+  <button class='buttonLook'> 契合度低于80%无法获取对方的联系方式 </button>
   <button bindtap='homePage' class='buttonHome'>返回首页</button>
   </block>
   <block wx:if='{{rate >= 80}}'>

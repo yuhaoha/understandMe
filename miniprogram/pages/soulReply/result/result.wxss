@@ -38,10 +38,10 @@ height:100%
 }
 
 .buttonLook{
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 150px;
     border: 0 solid #CBA7F9;
-    border-radius: 500px;
+    border-radius: 20px;
     box-shadow: 4px 1px 1px #cccccc;
     display: flex; 
     align-items: center; 
