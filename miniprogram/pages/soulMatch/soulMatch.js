@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    question_naire: [{_openid:1234234}]
+    clickID:-1
   },
 //出题进入出题页面
   submit_question: function () {
@@ -24,7 +24,7 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              wx.redirectTo({
+              wx.navigateTo({
                 url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl
               })
             }
@@ -38,7 +38,9 @@ Page({
   // 选择问卷
   choose_question:function(e){
     choose_id = e.currentTarget.dataset.id
-    console.log(choose_id)
+    this.setData({
+      clickID:e.currentTarget.id
+    })
   }, 
 
   // 开始答题匹配
@@ -63,9 +65,8 @@ Page({
     // 获取问卷
     question_naires.get({
       success: function(res){
-        const number= res.data.length
         that.setData({question_naire:res.data})
-        //console.log(that.data.question_naire)
+        console.log(res.data)
       },
       fail:function(res){
         //console.log(res.data)

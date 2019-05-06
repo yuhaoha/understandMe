@@ -15,8 +15,8 @@
   height: 100rpx;  
   display: flex;  
   flex-direction: row;  
-  padding:10rpx;  
-  background-color: #EECFA1;
+  padding:10rpx; 
+  background-color: #EECFA1; 
 }
 
 .left{  
@@ -53,6 +53,10 @@
 #answer_question{
   background-color: red;
   border-radius: 30rpx;
+}
+
+.detail-hover{
+    background: gray;
 }
 
 page{

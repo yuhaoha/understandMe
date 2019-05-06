@@ -68,7 +68,6 @@ function displayNewPage(that) {
     max_number++;
     // 已经完成10个题，将问卷存入数据库，跳到分享界面
     if (current_number == 11) {
-      //console.log(questions);
       addQuestionnaire();
       return;
     }
@@ -111,7 +110,6 @@ function addQuestionnaire() {
     .then(res => {
       // 跳转到答题结果页面，传递答题问卷ID作为参数
       var replyQnId = res._id;
-      console.log('答题问卷ID：' + replyQnId);
       wx.redirectTo({
         url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo + '&wx_number=' + wx_number
       });
@@ -165,6 +163,9 @@ Page({
 
   // 点击上一题按钮
   previousQuestion: function (e) {
+    if(current_number == 1){
+      return
+    }
     current_number--;
     setNewData(this);
   },
@@ -178,7 +179,6 @@ Page({
     wx_number = submit_people_questionnaire.weixin
     // 获取问卷id
     questionnaireId = submit_people_questionnaire._id;
-    console.log(questionnaireId)
     qnColl.doc(questionnaireId).get()
       .then(res => {
         // 存在记录数组中
