@@ -15,6 +15,8 @@ Page({
     openid:'',
     avatarUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/user-unlogin.png?sign=fa83cd1525c7b0ad18c93e95b53e148a&t=1556781942',
     nickName: '',
+    raiseNickName:'',
+    raiseAvatarUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/user-unlogin.png?sign=fa83cd1525c7b0ad18c93e95b53e148a&t=1556781942'
   },
 
   // 开始答题
@@ -72,10 +74,15 @@ Page({
         console.log(openid);
 
         // 如果点开自己出的题，跳到主页(后面改成我的记录页面)
-        qnColl.doc(questionnaireId).get()
+        qnColl.doc('9c4488c75cd04f800d464cdc76ce5092').get()
           .then(res => {
             // 出题人的id
             var raiseId = res.data._openid;
+            // 设置出题人昵称、头像传到前端
+            this.setData({
+              raiseAvatarUrl:res.data.avatarUrl,
+              raiseNickName:res.data.nickName
+            })
             console.log('*******当前openid:'+openid);
             // 写反的！！为了调试，到时候改一下
             if (openid == raiseId) {

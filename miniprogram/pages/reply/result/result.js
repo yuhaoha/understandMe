@@ -13,8 +13,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    rate:0
-
+    rate:0,
+    raiseNickName:'',
+    raiseAvatarUrl:'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/user-unlogin.png?sign=fa83cd1525c7b0ad18c93e95b53e148a&t=1556781942'
   },
 
   // 查看出题者答案,跳到记录页面
@@ -34,7 +35,9 @@ Page({
     replyColl.doc(replyQnId).get()
       .then(res => {
         this.setData({
-          rate:res.data.rate
+          rate:res.data.rate,
+          raiseAvatarUrl:res.data.raiseAvatarUrl,
+          raiseNickName:res.data.raiseNickName
         })
       })
   },

@@ -24,6 +24,15 @@ height:100%
   margin-bottom: 10%;
 }
 
+.avatar{
+  width: 100rpx;
+  height:100rpx;
+  border-radius:50%;
+  display: flex;
+  overflow:hidden;
+  text-align: center;
+}
+
 .description{
   background-color: #CBA7F9;
   margin-top: 10%;
