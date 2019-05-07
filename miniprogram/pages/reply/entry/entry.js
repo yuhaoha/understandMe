@@ -74,7 +74,7 @@ Page({
         console.log(openid);
 
         // 如果点开自己出的题，跳到主页(后面改成我的记录页面)
-        qnColl.doc('9c4488c75cd04f800d464cdc76ce5092').get()
+        qnColl.doc(questionnaireId).get()
           .then(res => {
             // 出题人的id
             var raiseId = res.data._openid;
@@ -83,41 +83,8 @@ Page({
               raiseAvatarUrl:res.data.avatarUrl,
               raiseNickName:res.data.nickName
             })
-            console.log('*******当前openid:'+openid);
-            // 写反的！！为了调试，到时候改一下
-            if (openid == raiseId) {
-              console.log('出题人和答题人相同哦')
-              wx.redirectTo({
-                url: '/pages/entry/index',
-              })
-            }
-
-            //答别人的问卷，在答题数据库中查询是否答过题
-            else {
-              console.log('出题人和答题人不同');
-              replyColl.where({
-                _openid: openid,
-                questionnaireId: questionnaireId
-              })
-                .get().then((res2) => {
-                  // res2.data是查询到的记录数组
-                  console.log('查询答题表');
-                  var length = res2.data.length;
-                  console.log('问卷' + questionnaireId + '答过的次数：' + length);
-                  // 该用户答过此题，去答题成功页面，带有回答问卷id参数
-                  if (length > 0) {
-                    // 回答问卷的ID
-                    var replyQnId = res2.data[0]._id;
-                    wx.redirectTo({
-                      url: '/pages/reply/result/result?replyQnId=' + replyQnId,
-                    });
-                  }
-                });
-            }
           });
-
-      }
-    })
-  },
-
+        }
+      });
+  }
 })

@@ -86,7 +86,7 @@ Page({
       // 转发时显示的标题
       title: '有人@我 你懂我吗？',
       // 点击的人显示的页面及参数
-      path: '/pages/reply/entry/entry?questionnaireId=' + questionnaireId,
+      path: '/pages/wait/wait?questionnaireId=' + questionnaireId,
       // 转发时显示的图片
       imageUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/share.png?sign=9fbfbd9af2a6af87b88e2f129348e8fc&t=1556452619',
       success: function (res) {

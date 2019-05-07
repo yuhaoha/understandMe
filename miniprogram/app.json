@@ -3,6 +3,7 @@
     "pages/entry/index",
     "pages/question/question",
     "pages/share/share",
+    "pages/wait/wait",
     "pages/reply/entry/entry",
     "pages/reply/content/content",
     "pages/reply/result/result",
