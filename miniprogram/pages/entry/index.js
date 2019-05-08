@@ -22,6 +22,12 @@ Page({
     })
   },
 
+  myrecord: function () {
+    wx.redirectTo({
+      url: '../myrecord/myrecord',
+    })
+  },
+
   showAbout: function () {
     wx.showModal({
       title: '关于我们',

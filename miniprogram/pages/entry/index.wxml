@@ -8,7 +8,9 @@
     <view class='headview'>
     <open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data>
     </view>
-    <open-data class='nickname' type="userNickName"></open-data>
+    <view class='wordview'> 
+      <open-data class='nickname' type="userNickName"></open-data>
+    </view>
   </view>
   <view class='body'>
     <view class='widgets'>
@@ -24,7 +26,7 @@
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
         </view>
       </view>
-      <view class='widgets__item-record'>
+      <view class='widgets__item-record' bindtap='myrecord'>
         <view id="record" class="widgets__info">
           <text class='widgets__info-name'>我的记录</text>
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/record.png?sign=bcf0dcebf754916bd29b5bee5f9ba3e3&t=1556416343" background-size="cover"/>

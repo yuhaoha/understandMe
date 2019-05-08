@@ -1,0 +1,46 @@
+<!--pages/myrecord/myrecord.wxml-->
+<!--<text>pages/myrecord/myrecord.wxml</text>-->
+<view class ="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">出题记录</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">做题记录</view>  
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+    <!--出题记录-->  
+    <swiper-item>  
+     <view wx:for="{{items}}" class='page_card'>
+        <view class='page-xx' >
+            <image src='{{item.raiseAvatarUrl}}' class= 'avatar'></image>
+            <view class='page-xx-text' style='width:90%'>
+              <view class='xx-text-name'>
+                <text class ="text-name">{{item.raiseNickName}} </text> 
+                <text class ="jian-text">正确率：{{item.rate}}</text>
+              </view>
+            </view>
+        </view>
+        <view class="btn">
+          <view style='margin:7px;display:flex;flex-direction:row;'>
+            <button class="btn-wx" bindtap='answer'> 查看TA的答案</button>
+          </view>
+        </view>
+      </view> 
+    </swiper-item>
+    <!--做题记录-->    
+    <swiper-item>  
+     <view wx:for-items="{{items}}" class='page_card'>
+      <view class='page-xx' >
+        <image class="full-image"  src="{{item.image}}"></image>
+          <view class='page-xx-text' style='width:90%'>
+            <view class='xx-text-name'>
+              <text class ="text-name">{{item.name}} </text> 
+              <text class ="jian-text">正确率：{{item.title}}</text>
+            </view>
+          </view>
+      </view>
+      <view class="btn">
+       <view style='margin:auto;display:flex;flex-direction:row;'>
+          <button class="btn-wx" bindtap='answer'> 查看TA的答案</button>
+        </view>
+      </view>
+    </view> 
+    </swiper-item>
+</swiper>  
