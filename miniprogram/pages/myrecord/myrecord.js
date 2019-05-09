@@ -7,6 +7,7 @@ var openid;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' }); 
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
+const soul_answer = db.collection('soul_questionnaire');
 //获取应用实例  
 
 Page({
@@ -18,7 +19,9 @@ Page({
     winHeight: 0,
     currentTab: 0,
     currentSelect: 1,
-    items:[] 
+    items:[], 
+    items2:[],
+    items3:[]
   },
   answer: function () {
     wx.redirectTo({
@@ -79,15 +82,40 @@ Page({
         // 获取openid
         openid = res.result.openId;
         console.log('****' + openid);
+        //出题记录的数据读取
         answer.where({
-          _openid: openid,
+          raiseOpenid: openid,
         })
           .get().then((res2) => {
             // res2.data是查询到的记录数组
             var length = res2.data.length;
             console.log(res2.data);
             this.setData({
-                   items: res2.data
+                   items2: res2.data
+            })
+          });
+          //做题记录的数据读取
+        answer.where({
+          _openid: openid,
+        })
+          .get().then((res3) => {
+            // res2.data是查询到的记录数组
+            var length = res3.data.length;
+            console.log(res3.data);
+            this.setData({
+              items: res3.data
+            })
+          });
+          //灵魂匹配的数据读取
+        soul_answer.where({
+          _openid: 'ozWL-4-oicGWS_a49cCirNJ89xus',
+        })
+          .get().then((res4) => {
+            // res2.data是查询到的记录数组
+            var length = res4.data.length;
+            console.log(res4.data);
+            this.setData({
+              items3: res4.data
             })
           });
       }})
