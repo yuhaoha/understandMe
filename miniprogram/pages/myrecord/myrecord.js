@@ -23,10 +23,31 @@ Page({
     items2:[],
     items3:[]
   },
-  answer: function () {
-    wx.redirectTo({
-      url: '../answer/answer',
+  //将_id数据传到do_answer页面
+  do_answer: function (e) {
+    var index = parseInt(e.currentTarget.dataset.index);
+    console.log(index);
+    wx.navigateTo({
+      url: '../answer/do_answer/do_answer?_id=' + this.data.items[index]._id,
     })
+  },
+  //将_id数据传到my_answer页面
+  my_answer: function (e1) {
+    var index = parseInt(e1.currentTarget.dataset.index);
+    console.log(index);
+    wx.navigateTo({
+      url: '../answer/my_answer/my_answer?_id='+this.data.items2[index]._id
+    })
+    console.log(this.data.items2[index]._id);
+  },
+  //将_id数据传到soul_answer页面
+  soul_answer:function(e2){
+    var index = parseInt(e2.currentTarget.dataset.index);
+    console.log(index);
+    wx.navigateTo({
+      url: '../answer/soul_answer/soul_answer?_id='+this.data.items3[index]._id,
+    })
+    console.log(this.data.items3[index]._id);
   },
   onLoad: function () {
     var that = this;
@@ -91,7 +112,7 @@ Page({
             var length = res2.data.length;
             console.log(res2.data);
             this.setData({
-                   items2: res2.data
+                   items: res2.data
             })
           });
           //做题记录的数据读取
@@ -103,7 +124,7 @@ Page({
             var length = res3.data.length;
             console.log(res3.data);
             this.setData({
-              items: res3.data
+              items2: res3.data
             })
           });
           //灵魂匹配的数据读取

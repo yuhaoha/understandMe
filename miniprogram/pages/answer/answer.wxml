@@ -1,4 +1,0 @@
-<!--pages/answer/answer.wxml-->
-<view class='head'>
-    <view class='title'>问题&答案</view>
-  </view>

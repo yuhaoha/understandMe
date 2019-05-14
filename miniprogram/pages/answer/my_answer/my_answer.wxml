@@ -1,0 +1,16 @@
+<!--pages/answer/my_answer/my_answer.wxml-->
+ <view wx:for-items="{{items}}" wx:key="{{item._id}}" class='page_card'>
+      <view class='page-xx' >
+          <view class='page-xx-text' style='width:90%'>
+            <view class='xx-text-name'>
+              <text class ="text-name">{{item.title}} </text> 
+            </view>
+            <view class='xx-text-name'> 
+              <text class ="jian-text">正确答案：{{item.answer[item.choice]}}</text> 
+            </view>
+            <view class='xx-text-name'> 
+              <text class ="jian-text">我的答案：{{item.answer[item.myChoice]}}</text> 
+            </view>
+          </view>
+        </view>
+      </view>
