@@ -46,7 +46,7 @@
     </swiper-item>
     <!--灵魂匹配-->
     <swiper-item>  
-     <view wx:for-items="{{items3}}" class='page_card'wx:key="{{item._id}}"data-index="{{index}}" bindtap='soul_answer'>
+     <view wx:for-items="{{items3}}" class='page_card'wx:key="{{item._id}}"data-index="{{index}}"bindtap='soul_answer'>
       <view class='page-xx' >
         <image src='{{item.avatar_url}}' class= 'avatar'></image>
           <view class='page-xx-text' style='width:90%'>
