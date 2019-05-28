@@ -1,5 +1,5 @@
 <!--pages/reply/entry/entry.wxml-->
-<view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
+<!-- <view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
 
   <view class='title'>
     <text>你与</text>
@@ -18,7 +18,55 @@
     </view>
     <text class='number'> 共10题</text>
   </view>
-  <button bindtap='replyQuestion' class='buttonStart'> 开始测试 </button>
-  <button bindtap='homePage' class='buttonHome'>返回首页</button>
-
+</view> -->
+<view class="cu-chat">
+  <view class="cu-info round">20xx年x月x日</view>
+  <view class="cu-item">
+    <view class="cu-avatar radius" style="background-image:url({{raiseAvatarUrl}});"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>我怀疑你是假朋友</text>
+      </view>
+    </view>
+    <view class="date "> 13:24</view>
+  </view>
+  <view class="cu-item self">
+    <view class="main">
+      <view class="content bg-green shadow">
+        <text>？？？你睡觉什么姿势我都知道</text>
+      </view>
+    </view>
+    <view class="cu-avatar radius" style="background-image:url();"><open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data></view>
+    <view class="date">13:24</view>
+  </view>
+  <view class="cu-item">
+    <view class="cu-avatar radius" style="background-image:url({{raiseAvatarUrl}});"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>那你来做下我出的卷子吧，一共十道题，我能看到你的答案</text>
+      </view>
+    </view>
+    <view class="date "> 13:24</view>
+  </view>
+  <view class="cu-item self">
+    <view class="main">
+      <view class="content bg-green shadow">
+        <text>行啊，怎么开始呢？</text>
+      </view>
+    </view>
+    <view class="cu-avatar radius" style="background-image:url();"><open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data></view>
+    <view class="date">13:25</view>
+  </view>
+  <view class="cu-item">
+    <view class="cu-avatar radius" style="background-image:url({{raiseAvatarUrl}});"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>点击下面的按钮就能开始做啦</text>
+      </view>
+    </view>
+    <view class="date "> 13:26</view>
+  </view>
 </view>
+  <button class="cu-btn block bg-blue margin-tb-sm lg" open-type='share' id='shareButton' bindtap='replyQuestion'>
+  <text class="cuIcon-forward lg"></text>开始测试
+  </button>

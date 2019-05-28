@@ -1,6 +1,54 @@
 <!--pages/share/share.wxml-->
 <!-- 第一版分享界面 -->
-<view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
-  <text class='success'>恭喜您，完成答题</text>
-  <button class='success' open-type='share' id='shareButton'>点我分享</button>
+<view class="cu-chat">
+  <view class="cu-info round">20xx年x月x日</view>
+  <view class="cu-item self">
+    <view class="main">
+      <view class="content bg-green shadow">
+        <text>喂喂喂</text>
+      </view>
+    </view>
+    <view class="cu-avatar radius"><open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data></view>
+    <view class="date">13:23</view>
+  </view>
+  <view class="cu-item">
+    <view class="cu-avatar radius cuIcon-friendaddfill"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>喂喂喂</text>
+      </view>
+    </view>
+    <view class="date "> 13:24</view>
+  </view>
+    <view class="cu-item">
+    <view class="cu-avatar radius cuIcon-friendaddfill"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>干嘛！</text>
+      </view>
+    </view>
+    <view class="date "> 13:24</view>
+  </view>
+  <view class="cu-item self">
+    <view class="main">
+      <view class="content bg-green shadow">
+        <text>快来做我刚出的卷子</text>
+      </view>
+    </view>
+    <view class="cu-avatar radius"><open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data></view>
+    <view class="date">13:25</view>
+  </view>
+  <view class="cu-item">
+    <view class="cu-avatar radius cuIcon-friendaddfill"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>你得先点击下面的按钮分享给我 gkd</text>
+      </view>
+    </view>
+    <view class="date "> 13:26</view>
+  </view>
+  <view class="cu-info round">你撤回了一条消息</view>
 </view>
+  <button class="cu-btn block bg-blue margin-tb-sm lg" open-type='share' id='shareButton'>
+  <text class="cuIcon-forward lg"></text>点我分享
+  </button>

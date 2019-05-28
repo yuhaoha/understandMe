@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/share/share",
+    "pages/reply/entry/entry",
     "pages/entry/index",
     "pages/myrecord/myrecord",
     "pages/question/question",
-    "pages/share/share",
     "pages/wait/wait",
-    "pages/reply/entry/entry",
     "pages/reply/content/content",
     "pages/reply/result/result",
     "pages/reply/answer/answer",
