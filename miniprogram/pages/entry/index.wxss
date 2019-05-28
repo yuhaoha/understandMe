@@ -27,11 +27,12 @@ height:100%
     font-size: 14px;
 }
 .body{
+    margin-top: 5%;
     padding-left: 15px;
     padding-right: 15px;
     overflow: hidden;
     float: left;
-    width: 92%;
+    width: 100%;
 }
 .widgets__item-begin{
     margin-top: 20%;
@@ -40,6 +41,7 @@ height:100%
     overflow: hidden;
     border-radius: 2px;
     cursor: pointer;
+    
 }
 .widgets__item-match{
     margin-top: 10px;
