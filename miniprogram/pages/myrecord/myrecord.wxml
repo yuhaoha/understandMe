@@ -5,7 +5,7 @@
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">做题记录</view>
   <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">灵魂匹配</view>
 </view>
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 45}}px" bindchange="bindChange">
   <!--出题记录-->
   <!-- <swiper-item>  
       <view wx:for="{{items}}" class='page_card'data-index="{{index}}" bindtap='do_answer'>
@@ -25,7 +25,7 @@
         </view>
       </view> 
     </swiper-item> -->
-  <swiper-item>
+  <!-- <swiper-item>
     <view class="cu-list menu-avatar">
       <view class="cu-item" wx:for="{{items}}" wx:key="{{item._id}}" data-index="{{index}}" bindtap='do_answer'>
         <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
@@ -38,6 +38,28 @@
         <view class="action">
           <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
         </view>
+      </view>
+    </view>
+  </swiper-item> -->
+  <swiper-item>
+    <view class="cu-timeline" wx:for="{{items}}" wx:for-item="questionnaire">
+      <view class="cu-time">06-17 01:30</view>
+      <view class="cu-item">
+        <view class="content bg-grey shadow-blur">
+        <view class="cu-list menu-avatar radius">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{reply.raiseAvatarUrl}});"></view>
+          <view class="content">
+            <view class="text-grey">{{reply.replyNickName}}</view>
+            <view class="text-gray text-sm">
+              <text></text> 查看TA的答卷</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">{{reply.replyTime}}</view>
+          </view>
+        </view>
+      </view>
+      </view>
       </view>
     </view>
   </swiper-item>
@@ -62,7 +84,7 @@
     </swiper-item> -->
   <swiper-item>
     <view class="cu-list menu-avatar">
-      <view class="cu-item" wx:for="{{items2}}"  data-index="{{index}}" bindtap='my_answer'>
+      <view class="cu-item" wx:for="{{items2}}" data-index="{{index}}" bindtap='my_answer'>
         <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
         <view class="content">
           <view class="text-grey">{{item.raiseNickName}}</view>
