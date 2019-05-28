@@ -10,13 +10,13 @@ Page({
   },
   
   maleMatch: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../soulMatch/soulMatch?gender=' + '1',
     })
   },
 
   femaleMatch: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../soulMatch/soulMatch?gender=' + '0',
     })
   },
@@ -28,7 +28,7 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl
               })
             }

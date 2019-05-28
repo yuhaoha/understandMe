@@ -124,23 +124,39 @@ function setNewData(that)
 
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
-  const questionnaireColl = db.collection('soul_questionnaire');
+  const male_questionnaireColl = db.collection('soul_questionnaire');
+  const female_questionnaireColl = db.collection('female_soul_questionnaire');
   var time = new Date()
-  questionnaireColl.add({
-    data: {
-      questions: questions,
-      weixin: wx_number,
-      username:username,
-      gender:gender,
-      avatar_url:avatar_url,
-      time: time,
-    }
-  })
-    .then(res => {
+  if(gender == '0'){
+    female_questionnaireColl.add({
+      data: {
+        questions: questions,
+        weixin: wx_number,
+        username:username,
+        gender:gender,
+        avatar_url:avatar_url,
+        time: time,
+      }
+    }).then(res => {
       //console.log(res._id)
     })
-    .catch(console.error); 
-  
+    .catch(console.error);
+  } 
+  else{
+      male_questionnaireColl.add({
+      data: {
+        questions: questions,
+        weixin: wx_number,
+        username: username,
+        gender: gender,
+        avatar_url: avatar_url,
+        time: time,
+      }
+    }).then(res => {
+      //console.log(res._id)
+    })
+      .catch(console.error);
+  }
 }
 
 Page({
@@ -172,7 +188,7 @@ Page({
     questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
       // 跳转到匹配页面
     wx.redirectTo({
-      url: '../soulMatch/soulMatch',
+      url: '../genderMatch/genderMatch',
     });
     return;
   },
@@ -251,6 +267,7 @@ Page({
   onLoad: function (res) {
     username = res.username
     gender = res.gender
+    //gender = '0'
     avatar_url = res.avatarUrl
     var id = getId();
     questionColl.doc(id).get()

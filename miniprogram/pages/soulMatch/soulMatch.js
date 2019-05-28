@@ -2,8 +2,10 @@
 
 //获取数据库引用
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
-//获取集合引用
+//获取集合引用男性出题者题目
 const question_naires = db.collection('soul_questionnaire');
+//获取女性出题人题目
+const female_question_naires = db.collection('female_soul_questionnaire');
 var question_naire_temp;
 //选择的问卷id
 var choose_id;
@@ -11,10 +13,13 @@ var chosen_question;
 var gender = '';
 //获取题库数目
 var question_naires_count;
-question_naires.count().then(res => {
-  question_naires_count = res.total
-})
-
+if (gender == '1') {
+  console.log('aaa#', question_naires_count)
+   
+}
+if(gender == '0') {
+  
+}
 
 Page({
 
@@ -28,18 +33,31 @@ Page({
   change_soul: function () {
     var that = this
     // count 随机获取数据库查询开始点
-    var count = (Math.round(Math.random() * (question_naires_count-6)))
-    console.log(count)
-    question_naires.where({
-      gender: gender,
-    }).skip(count).limit(5).get({
-      success: function (res) {
-        that.setData({ question_naire: res.data })
-      },
-      fail: function (res) {
-        //console.log(res.data)
-      }
-    })
+    if(gender == '1'){
+      console.log('%%%%', question_naires_count)
+      var count = (Math.round(Math.random() * (question_naires_count - 6)))
+      console.log(count)
+      question_naires.skip(count).limit(5).get({
+        success: function (res) {
+          that.setData({ question_naire: res.data })
+        },
+        fail: function (res) {
+          //console.log(res.data)
+        }
+      })
+    }
+    else{
+      var count = (Math.round(Math.random() * (question_naires_count - 6)))
+      console.log(count)
+      female_question_naires.skip(count).limit(5).get({
+        success: function (res) {
+          that.setData({ question_naire: res.data })
+        },
+        fail: function (res) {
+          //console.log(res.data)
+        }
+      })
+    }
   },
   
   // 选择问卷
@@ -57,7 +75,7 @@ Page({
         //console.log(res.data)
         //将对象转为string
         var submit_people_questionnaire = JSON.stringify(res.data)
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../soulReply/content/content?submit_people_questionnaire=' + submit_people_questionnaire,
         })
       }
@@ -71,18 +89,40 @@ Page({
     var that = this
     // 先取出集合记录总数
     gender = res.gender
-    // 获取问卷
-    question_naires.where({
-      gender:gender,
-    }).limit(5).get({
-      success: function(res){
-        that.setData({question_naire:res.data})
-        //console.log(res.data)
-      },
-      fail:function(res){
-        //console.log(res.data)
-      }
-    })
+    if (gender == '1') {
+      var count = (Math.round(Math.random() * 5))
+      question_naires.count().then(res => {
+        question_naires_count = res.total
+        console.log('####', question_naires_count)
+      }) 
+      // 获取问卷
+      question_naires.skip(count).limit(5).get({
+        success: function (res) {
+          that.setData({ question_naire: res.data })
+          //console.log(res.data)
+        },
+        fail: function (res) {
+          //console.log(res.data)
+        }
+      })
+    }
+    else {
+      var count = (Math.round(Math.random() * 5))
+      female_question_naires.count().then(res => {
+        question_naires_count = res.total
+      })
+      //console.log(count)
+      // 获取问卷
+      female_question_naires.skip(count).limit(5).get({
+        success: function (res) {
+          that.setData({ question_naire: res.data })
+          //console.log(res.data)
+        },
+        fail: function (res) {
+          //console.log(res.data)
+        }
+      })
+    }
   },
 
   /**
