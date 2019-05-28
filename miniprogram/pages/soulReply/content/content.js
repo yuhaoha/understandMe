@@ -9,6 +9,7 @@ const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 const qnColl = db.collection('soul_questionnaire');
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+
 //匹配的问卷数据
 var submit_people_questionnaire;
 //匹配问卷人的头像
@@ -17,6 +18,8 @@ var head_photo;
 var nickname;
 // 匹配问卷人的微信
 var wx_number;
+//答题正确率
+var rate = 0;
 
 //将选择过的答案颜色设置为蓝色
 function changeColor(that) {
@@ -100,11 +103,22 @@ function setNewData(that) {
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
   const qnReplyColl = db.collection('reply_soul_questionnaire');
+  // 计算答题正确率
+  for (var i = 0; i < 10; i++) {
+    if (questions[i]['choice'] == questions[i]['myChoice']) {
+      rate = rate + 10;
+    }
+  }
   qnReplyColl.add({
     //插入 data字段表示需新增的JSON数据
     data: {
       questions: questions,
-      questionnaireId: questionnaireId
+      //将出题人的问题ID,出题人头像，出题人名字，出题人微信加入答题题库记录
+      questionnaireId: questionnaireId,
+      head_photo: head_photo,
+      nickname: nickname,
+      wx_number: wx_number,
+      rate: rate,
     }
   })
     .then(res => {
