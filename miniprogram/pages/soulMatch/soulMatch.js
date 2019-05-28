@@ -1,4 +1,5 @@
 // miniprogram/pages/soulMatch/soulMatch.js
+
 //获取数据库引用
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 //获取集合引用
@@ -7,7 +8,13 @@ var question_naire_temp;
 //选择的问卷id
 var choose_id;
 var chosen_question;
-var gender = ''
+var gender = '';
+//获取题库数目
+var question_naires_count;
+question_naires.count().then(res => {
+  question_naires_count = res.total
+})
+
 
 Page({
 
@@ -15,10 +22,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    clickID:-1
+    clickID:-1,
   },
 //出题进入出题页面
   change_soul: function () {
+    var that = this
+    // count 随机获取数据库查询开始点
+    var count = (Math.round(Math.random() * (question_naires_count-6)))
+    console.log(count)
+    question_naires.where({
+      gender: gender,
+    }).skip(count).limit(5).get({
+      success: function (res) {
+        that.setData({ question_naire: res.data })
+      },
+      fail: function (res) {
+        //console.log(res.data)
+      }
+    })
   },
   
   // 选择问卷
@@ -48,14 +69,15 @@ Page({
    */
   onLoad: function (res) {
     var that = this
+    // 先取出集合记录总数
     gender = res.gender
     // 获取问卷
     question_naires.where({
       gender:gender,
-    }).get({
+    }).limit(5).get({
       success: function(res){
         that.setData({question_naire:res.data})
-        console.log(res.data)
+        //console.log(res.data)
       },
       fail:function(res){
         //console.log(res.data)
