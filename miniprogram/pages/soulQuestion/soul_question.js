@@ -125,13 +125,15 @@ function setNewData(that)
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
   const questionnaireColl = db.collection('soul_questionnaire');
+  var time = new Date()
   questionnaireColl.add({
     data: {
       questions: questions,
       weixin: wx_number,
       username:username,
       gender:gender,
-      avatar_url:avatar_url
+      avatar_url:avatar_url,
+      time: time,
     }
   })
     .then(res => {

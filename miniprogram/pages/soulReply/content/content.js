@@ -103,6 +103,8 @@ function setNewData(that) {
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
   const qnReplyColl = db.collection('reply_soul_questionnaire');
+  //获取时间
+  var time = new Date();
   // 计算答题正确率
   for (var i = 0; i < 10; i++) {
     if (questions[i]['choice'] == questions[i]['myChoice']) {
@@ -119,6 +121,7 @@ function addQuestionnaire() {
       nickname: nickname,
       wx_number: wx_number,
       rate: rate,
+      time:time,
     }
   })
     .then(res => {
