@@ -7,6 +7,7 @@ var question_naire_temp;
 //选择的问卷id
 var choose_id;
 var chosen_question;
+var gender = ''
 
 Page({
 
@@ -17,22 +18,7 @@ Page({
     clickID:-1
   },
 //出题进入出题页面
-  submit_question: function () {
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              wx.navigateTo({
-                url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl
-              })
-            }
-          })
-        }
-      }
-    })
-    
+  change_soul: function () {
   },
   
   // 选择问卷
@@ -62,8 +48,11 @@ Page({
    */
   onLoad: function (res) {
     var that = this
+    gender = res.gender
     // 获取问卷
-    question_naires.get({
+    question_naires.where({
+      gender:gender,
+    }).get({
       success: function(res){
         that.setData({question_naire:res.data})
         console.log(res.data)

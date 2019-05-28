@@ -18,7 +18,7 @@ Page({
 
   soulMatch: function () {
     wx.navigateTo({
-      url: '../soulMatch/soulMatch',
+      url: '../genderMatch/genderMatch',
     })
   },
 

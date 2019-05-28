@@ -1,0 +1,32 @@
+<view class='index' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/main_background1.jpg?sign=1b2fa4563c7084fa35bea55d54a066b7&t=1556416222)'>
+  <view class='infoview'>
+    <view class='headview'>
+    <open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data>
+    </view>
+    <view class='wordview'> 
+      <open-data class='nickname' type="userNickName"></open-data>
+    </view>
+  </view>
+  <view class='body'>
+    <view class='widgets'>
+      <view class='widgets__item-match' bindtap='maleMatch'>
+        <view id="match" class="widgets__info">
+          <text class='widgets__info-name'>匹配男生</text>
+          <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
+        </view>
+      </view>
+       <view class='widgets__item-match' bindtap='femaleMatch'>
+        <view id="match" class="widgets__info">
+          <text class='widgets__info-name'>匹配女生</text>
+          <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
+        </view>
+      </view>
+      <view class='widgets__item-begin' bindtap='submit_question'>
+        <view id="begin" class="widgets__info">
+          <text class='widgets__info-name' >创建灵魂</text>
+          <image class='widgets__info-img' src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/begin.png?sign=0bab15f608c81c038876cea802b4b26f&t=1556416247" background-size="cover"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

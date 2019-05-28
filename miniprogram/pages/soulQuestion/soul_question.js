@@ -183,7 +183,7 @@ Page({
     max_number = 1;
     questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
     wx.redirectTo({
-      url: '../soulMatch/soulMatch',
+      url: '../genderMatch/genderMatch',
     })
   },
 

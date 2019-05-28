@@ -12,6 +12,8 @@
 	"appid": "wxac6b2a8df0bdfc8a",
 	"projectname": "understadMe",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

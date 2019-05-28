@@ -1,0 +1,103 @@
+/**index.wxss**/
+
+page{
+
+height:100%
+
+}
+
+.index{
+    min-height: 100%;
+}
+.head{
+    padding-top: 40px;
+    padding-left: 40px;
+    float: left;
+}
+.title{
+    font-family: 'MF SuBai(Noncomercial)';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: slategray
+}
+.desc{
+    margin-top: 15px;
+    color: #888888;
+    font-size: 14px;
+}
+.body{
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: hidden;
+    float: left;
+    width: 92%;
+}
+.widgets__item-begin{
+    margin-top: 20%;
+    margin-bottom: 10px;
+    background-color: rgb(247, 231, 141);
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.widgets__item-match{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: lightblue;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.widgets__item-record{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: violet;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.widgets__item-about{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: mistyrose;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.widgets__info{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    flex-direction: row;
+}
+.widgets__info-name{
+    flex: 1;
+    color: white;
+}
+.widgets__info-img{
+    width: 30px;
+    height: 30px;
+}
+.infoview{
+  margin-right: 10px;
+}
+.headview{
+  height: 100rpx;
+  width: 100rpx;
+  float: right;
+  margin-top: 13%;
+  margin-right: 3%;
+  display:block; 
+  overflow:hidden; 
+  border-radius: 50%;
+}
+.nickname{
+  color: #888888;
+  font-size: 14px;
+  margin-left: 24px;
+}
+.wordview{
+  float: right;
+  margin-right: 1%;
+}
