@@ -8,7 +8,7 @@ const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
 const questionnaire = db.collection('questionnaire');
-const soul_answer = db.collection('soul_questionnaire');
+const soul_answer = db.collection('reply_soul_questionnaire');
 //获取应用实例  
 
 Page({

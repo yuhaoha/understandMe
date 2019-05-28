@@ -124,17 +124,17 @@
   <swiper-item>
     <scroll-view scroll-y="true">
       <view class="cu-list menu-avatar">
-      <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer'>
-        <view class="cu-avatar round lg" style="background-image:url({{item.avatar_url}});"></view>
+      <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer' wx:if="{{item.rate>=80}}">
+        <view class="cu-avatar round lg" style="background-image:url({{item.head_photo}});"></view>
         <view class="content">
-          <view class="text-grey">{{item.weixin}}</view>
+          <view class="text-grey">{{item.nickname}}</view>
           <view class="text-gray text-sm flex">
             <text class="text-cut">查看TA的答案</text>
           </view>
         </view>
-        <!-- <view class="action">
+        <view class="action">
         <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
-      </view> -->
+      </view> 
       </view>
     </view>
     </scroll-view>
