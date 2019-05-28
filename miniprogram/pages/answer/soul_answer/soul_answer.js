@@ -30,10 +30,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    answer.where({questionnaireId : id}).get().then((res) => {
-      console.log(res.data[0].questions);
+    answer.doc(id).get().then((res) => {
+      console.log(res.data.questions);
       this.setData({
-        items:res.data[0].questions,
+        items: res.data.questions,
       })
     })
   },

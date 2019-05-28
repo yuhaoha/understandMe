@@ -142,7 +142,7 @@ Page({
           });
           //灵魂匹配的数据读取
         soul_answer.where({
-          _openid: 'ozWL-4-oicGWS_a49cCirNJ89xus',
+          _openid: openid,
         })
           .get().then((res4) => {
             // res2.data是查询到的记录数组

@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/test/test",
+    "pages/entry/index",
     "pages/share/share",
     "pages/reply/entry/entry",
-    "pages/entry/index",
     "pages/myrecord/myrecord",
     "pages/question/question",
     "pages/wait/wait",
