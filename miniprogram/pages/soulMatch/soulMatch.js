@@ -24,7 +24,7 @@ Page({
   data: {
     clickID:-1,
   },
-//出题进入出题页面
+//刷新题目列表
   change_soul: function () {
     var that = this
     // count 随机获取数据库查询开始点
@@ -57,7 +57,7 @@ Page({
         //console.log(res.data)
         //将对象转为string
         var submit_people_questionnaire = JSON.stringify(res.data)
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../soulReply/content/content?submit_people_questionnaire=' + submit_people_questionnaire,
         })
       }

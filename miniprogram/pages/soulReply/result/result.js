@@ -46,15 +46,7 @@ Page({
       .then(res => {
         var questions = res.data.questions;
         // 相同率
-        var rate=0;
-        for(var i =0;i<10;i++)
-        {
-          if(questions[i]['choice']==questions[i]['myChoice'])
-          {
-            rate = rate + 10;
-          }
-        }
-        
+        var rate= res.data.rate
         this.setData({
           rate:rate
         })
