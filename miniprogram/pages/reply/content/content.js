@@ -99,6 +99,8 @@ function setNewData(that) {
 function addQuestionnaire() {
   const qnReplyColl = db.collection('reply_questionnaire');
   var rate = 0;
+  // 获取当前时间
+  var time = new Date();
   for (var i = 0; i < 10; i++) {
     if (questions[i]['choice'] == questions[i]['myChoice']) {
       rate = rate + 10;
@@ -114,7 +116,8 @@ function addQuestionnaire() {
       raiseNickName:raiseNickName,
       replyNickName: nickName,
       replyAvatarUrl: avatarUrl,
-      rate:rate
+      rate:rate,
+      time:time
     }
   })
     .then(res => {

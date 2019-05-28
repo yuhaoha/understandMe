@@ -134,12 +134,16 @@ function setNewData(that)
 // 答完问卷将结果添加到问卷表
 function addQuestionnaire() {
   const questionnaireColl = db.collection('questionnaire');
+  // 获取当前时间
+  var time = new Date();
+  console.log(time);
   questionnaireColl.add({
     //插入 data字段表示需新增的JSON数据
     data: {
       questions: questions,
       nickName:nickName,
-      avatarUrl:avatarUrl
+      avatarUrl:avatarUrl,
+      time:time
     }
   })
     .then(res => {  
