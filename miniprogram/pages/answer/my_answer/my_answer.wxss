@@ -39,7 +39,6 @@
 .xx-text-name{
   text-align: center;
   margin: 10px;
-  width: 65%;
 }
 .text-name{
   font-size:20px;

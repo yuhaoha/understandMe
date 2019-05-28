@@ -23,7 +23,7 @@ Page({
   },
 
   myrecord: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../myrecord/myrecord',
     })
   },
