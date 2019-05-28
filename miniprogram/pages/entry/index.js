@@ -11,7 +11,7 @@ Page({
   },
   
   enterQuestion: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../question/question',
     })
   },
