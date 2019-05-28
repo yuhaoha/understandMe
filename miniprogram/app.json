@@ -1,11 +1,8 @@
 {
   "pages": [
-<<<<<<< HEAD
     "pages/test/test",
-=======
     "pages/share/share",
     "pages/reply/entry/entry",
->>>>>>> dccc72911c2e27941feb34e8c29a376c3fd00ba9
     "pages/entry/index",
     "pages/myrecord/myrecord",
     "pages/question/question",

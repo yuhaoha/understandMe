@@ -1,10 +1,5 @@
 <!--pages/share/share.wxml-->
 <!-- 第一版分享界面 -->
-<<<<<<< HEAD
-<view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
-  <text class='success'>恭喜您，完成出题</text>
-  <button class='success' open-type='share' id='shareButton'>点我分享</button>
-=======
 <view class="cu-chat">
   <view class="cu-info round">20xx年x月x日</view>
   <view class="cu-item self">
@@ -53,7 +48,6 @@
     <view class="date "> 13:26</view>
   </view>
   <view class="cu-info round">你撤回了一条消息</view>
->>>>>>> dccc72911c2e27941feb34e8c29a376c3fd00ba9
 </view>
   <button class="cu-btn block bg-blue margin-tb-sm lg" open-type='share' id='shareButton'>
   <text class="cuIcon-forward lg"></text>点我分享
