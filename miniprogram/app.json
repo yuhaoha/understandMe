@@ -8,6 +8,7 @@
     "pages/reply/entry/entry",
     "pages/reply/content/content",
     "pages/reply/result/result",
+    "pages/reply/answer/answer",
     "pages/index/index",
     "pages/answer/do_answer/do_answer",
     "pages/answer/my_answer/my_answer",
