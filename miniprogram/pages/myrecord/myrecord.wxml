@@ -127,7 +127,9 @@
       <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer' wx:if="{{item.rate>=80}}">
         <view class="cu-avatar round lg" style="background-image:url({{item.head_photo}});"></view>
         <view class="content">
-          <view class="text-grey">{{item.nickname}}</view>
+          <view class="text-grey">{{item.nickname}}|
+          <text class="text-cut">微信号：{{item.wx_number}}</text>
+          </view>
           <view class="text-gray text-sm flex">
             <text class="text-cut">查看TA的答案</text>
           </view>
