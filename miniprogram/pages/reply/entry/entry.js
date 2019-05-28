@@ -41,8 +41,8 @@ Page({
 
   onLoad: function (res1) {
     // 获取问卷ID
-    // questionnaireId = res1.questionnaireId;
-    // console.log('分享的问卷ID：' + questionnaireId);
+    questionnaireId = res1.questionnaireId;
+    console.log('分享的问卷ID：' + questionnaireId);
     // 获取用户头像，昵称
     wx.getSetting({
       success: res => {
@@ -64,7 +64,7 @@ Page({
 
   onShow:function(){
     // 获取用户openid
-    /*var openid;
+    var openid;
     wx.cloud.callFunction({
       name: 'getOpenid',
       complete: res => {
@@ -85,6 +85,6 @@ Page({
             })
           });
         }
-      });*/
+      });
   }
 })
