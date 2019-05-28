@@ -199,8 +199,11 @@ Page({
 
   // 点击上一题按钮
   previousQuestion: function (e) {
-    current_number--;
-    setNewData(this);
+    if(current_number>1)
+    {
+      current_number--;
+      setNewData(this);
+    }
   },
 
   //点击换一题按钮，换一道新的题目
