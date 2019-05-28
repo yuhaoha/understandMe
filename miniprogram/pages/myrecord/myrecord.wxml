@@ -42,7 +42,8 @@
     </view>
   </swiper-item> -->
   <swiper-item>
-    <view class="cu-timeline" wx:for="{{items}}" wx:for-item="questionnaire">
+    <scroll-view scroll-y="true"> 
+      <view class="cu-timeline" wx:for="{{items}}" wx:for-item="questionnaire">
       <view class="cu-time">06-17 01:30</view>
       <view class="cu-item">
         <view class="content bg-grey shadow-blur">
@@ -62,6 +63,7 @@
       </view>
       </view>
     </view>
+    </scroll-view>
   </swiper-item>
   <!--做题记录-->
   <!-- <swiper-item>  
@@ -83,7 +85,8 @@
     </view> 
     </swiper-item> -->
   <swiper-item>
-    <view class="cu-list menu-avatar">
+    <scroll-view scroll-y="true">
+      <view class="cu-list menu-avatar">
       <view class="cu-item" wx:for="{{items2}}" data-index="{{index}}" bindtap='my_answer'>
         <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
         <view class="content">
@@ -97,6 +100,7 @@
         </view>
       </view>
     </view>
+    </scroll-view>
   </swiper-item>
   <!--灵魂匹配-->
   <!-- <swiper-item>  
@@ -118,7 +122,8 @@
     </view> 
     </swiper-item> -->
   <swiper-item>
-    <view class="cu-list menu-avatar">
+    <scroll-view scroll-y="true">
+      <view class="cu-list menu-avatar">
       <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer'>
         <view class="cu-avatar round lg" style="background-image:url({{item.avatar_url}});"></view>
         <view class="content">
@@ -132,5 +137,6 @@
       </view> -->
       </view>
     </view>
+    </scroll-view>
   </swiper-item>
 </swiper>
