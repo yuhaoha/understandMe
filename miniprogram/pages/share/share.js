@@ -24,9 +24,7 @@ Page({
         // 分享失败
       }
     })
-    console.log('***********')
-    // 传过来的问卷ID参数
-    console.log(res.questionnaireId) //.questionnaireId
+    // 问卷id
     questionnaireId = res.questionnaireId;
   },
 
@@ -78,9 +76,7 @@ Page({
   onShareAppMessage: function (res) {
     if(res.from=='button')
     {
-      console.log('from tag button');
-      console.log(res.target);
-      console.log(res.webViewUrl);
+      console.log('点击分享按钮触发');
     }
     return {
       // 转发时显示的标题
