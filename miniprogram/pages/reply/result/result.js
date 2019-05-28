@@ -20,10 +20,12 @@ Page({
 
   // 查看出题者答案,跳到记录页面
   lookAnswer:function(e){
-
+    wx.navigateTo({
+      url: '/pages/reply/answer/answer?replyQnId=' + replyQnId,
+    })
   },
 
-  // 回到首页
+  // 跳转到主页
   homePage: function (e) {
     wx.redirectTo({
       url: '/pages/entry/index',

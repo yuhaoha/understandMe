@@ -87,20 +87,23 @@ function displayNewPage(that)
     {
       console.log(questions);
       addQuestionnaire();
-      return;
     }
-    // 随机获取1-15之间的记录
-    var id = getId();
-    questionColl.doc(id).get()
-      .then(res => {
-        // 存在记录数组中
-        questions[current_number - 1] = {
-          number: current_number,
-          title: res.data.title,
-          answer: res.data.answer
-        };
-        setNewData(that);
-      });
+    // 未完成，加载新数据
+    else
+    {
+      // 随机获取1-15之间的记录
+      var id = getId();
+      questionColl.doc(id).get()
+        .then(res => {
+          // 存在记录数组中
+          questions[current_number - 1] = {
+            number: current_number,
+            title: res.data.title,
+            answer: res.data.answer
+          };
+          setNewData(that);
+        });
+    }
   }
 
   // current_number<max_number，说明用户点击了上一题按钮，展示已浏览的题
@@ -145,7 +148,7 @@ function addQuestionnaire() {
       // 跳转到分享页面
       console.log('跳转到分享页面')
       console.log(questionnaireId)
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/share/share?questionnaireId=' + questionnaireId,
       });
     })
