@@ -40,19 +40,9 @@
 .question-answer{
   height: 100rpx;  
   display: flex;  
-  flex-direction: row;  
+  flex-direction: row; 
+  align-content: center; 
   padding:10rpx;  
-  background-color: #EECFA1;
-}
-
-#submit_question{
-  background-color: red;
-  border-radius: 30rpx;
-}
-
-#answer_question{
-  background-color: red;
-  border-radius: 30rpx;
 }
 
 .detail-hover{

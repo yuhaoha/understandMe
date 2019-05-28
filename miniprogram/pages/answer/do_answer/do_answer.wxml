@@ -1,5 +1,5 @@
 <!--pages/answer/do_answer/do_answer.wxml-->
- <view wx:for-items="{{items}}" wx:key="{{item._id}}" class='page_card'>
+ <view wx:for-items="{{items}}" wx:key="{{item._id}}" class='page_card bg-grey light'>
       <view class='page-xx' >
           <view class='page-xx-text' style='width:90%'>
             <view class='xx-text-name'>

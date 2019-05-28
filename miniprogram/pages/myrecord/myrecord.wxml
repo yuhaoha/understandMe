@@ -1,13 +1,13 @@
 <!--pages/myrecord/myrecord.wxml-->
 <!--<text>pages/myrecord/myrecord.wxml</text>-->
-<view class ="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">出题记录</view>  
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">出题记录</view>
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">做题记录</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">灵魂匹配</view>  
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">灵魂匹配</view>
 </view>
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
-    <!--出题记录-->  
-    <!-- <swiper-item>  
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <!--出题记录-->
+  <!-- <swiper-item>  
       <view wx:for="{{items}}" class='page_card'data-index="{{index}}" bindtap='do_answer'>
         <view class='page-xx' >
             <image src='{{item.raiseAvatarUrl}}' class= 'avatar'></image>
@@ -25,24 +25,24 @@
         </view>
       </view> 
     </swiper-item> -->
-        <swiper-item>
+  <swiper-item>
     <view class="cu-list menu-avatar">
-    <view class="cu-item"  wx:for="{{items}}" wx:key="{{item._id}}" data-index="{{index}}" bindtap='do_answer'>
-      <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
-      <view class="content">
-        <view class="text-grey">{{item.raiseNickName}}</view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">查看TA的答案</text>
+      <view class="cu-item" wx:for="{{items}}" wx:key="{{item._id}}" data-index="{{index}}" bindtap='do_answer'>
+        <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
+        <view class="content">
+          <view class="text-grey">{{item.raiseNickName}}</view>
+          <view class="text-gray text-sm flex">
+            <text class="text-cut">查看TA的答案</text>
+          </view>
+        </view>
+        <view class="action">
+          <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
         </view>
       </view>
-      <view class="action">
-        <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
-      </view>
     </view>
-  </view>
   </swiper-item>
-    <!--做题记录-->    
-    <!-- <swiper-item>  
+  <!--做题记录-->
+  <!-- <swiper-item>  
      <view wx:for-items="{{items2}}" wx:key="{{item._id}}" class='page_card' data-index="{{index}}" bindtap='my_answer'>
       <view class='page-xx' >
         <image src='{{item.raiseAvatarUrl}}' class= 'avatar'></image>
@@ -60,24 +60,24 @@
       </view>
     </view> 
     </swiper-item> -->
-    <swiper-item>
+  <swiper-item>
     <view class="cu-list menu-avatar">
-    <view class="cu-item"  wx:for="{{items2}}" wx:key="{{item._id}}" data-index="{{index}}" bindtap='my_answer'>
-      <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
-      <view class="content">
-        <view class="text-grey">{{item.raiseNickName}}</view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">查看TA的答案</text>
+      <view class="cu-item" wx:for="{{items2}}"  data-index="{{index}}" bindtap='my_answer'>
+        <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
+        <view class="content">
+          <view class="text-grey">{{item.raiseNickName}}</view>
+          <view class="text-gray text-sm flex">
+            <text class="text-cut">查看TA的答案</text>
+          </view>
+        </view>
+        <view class="action">
+          <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
         </view>
       </view>
-      <view class="action">
-        <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
-      </view>
     </view>
-  </view>
   </swiper-item>
-    <!--灵魂匹配-->
-    <!-- <swiper-item>  
+  <!--灵魂匹配-->
+  <!-- <swiper-item>  
      <view wx:for-items="{{items3}}" class='page_card'wx:key="{{item._id}}"data-index="{{index}}"bindtap='soul_answer'>
       <view class='page-xx' >
         <image src='{{item.avatar_url}}' class= 'avatar'></image>
@@ -95,20 +95,20 @@
       </view>
     </view> 
     </swiper-item> -->
-    <swiper-item>
+  <swiper-item>
     <view class="cu-list menu-avatar">
-    <view class="cu-item"  wx:for="{{items3}}" wx:key="{{item._id}}" data-index="{{index}}" bindtap='soul_answer'>
-      <view class="cu-avatar round lg" style="background-image:url({{item.avatar_url}});"></view>
-      <view class="content">
-        <view class="text-grey">{{item.weixin}}</view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">查看TA的答案</text>
+      <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer'>
+        <view class="cu-avatar round lg" style="background-image:url({{item.avatar_url}});"></view>
+        <view class="content">
+          <view class="text-grey">{{item.weixin}}</view>
+          <view class="text-gray text-sm flex">
+            <text class="text-cut">查看TA的答案</text>
+          </view>
         </view>
-      </view>
-      <!-- <view class="action">
+        <!-- <view class="action">
         <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
       </view> -->
+      </view>
     </view>
-  </view>
   </swiper-item>
-</swiper>  
+</swiper>

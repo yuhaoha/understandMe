@@ -74,14 +74,7 @@
   margin-bottom: 20rpx;
   display: flex;
   flex-direction: row;
-}
-
-#previous_question{
-  border-radius: 30rpx;
-}
-
-#change_question{
-  border-radius: 30rpx;
+  align-content: center; 
 }
 
 page{
