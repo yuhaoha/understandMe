@@ -7,8 +7,6 @@ var openid;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' }); 
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
-const answer2 = db.collection('reply_questionnaire');
-const questionnaire = db.collection('questionnaire');
 const soul_answer = db.collection('reply_soul_questionnaire');
 //获取应用实例  
 
@@ -23,8 +21,7 @@ Page({
     currentSelect: 1,
     items:[], 
     items2:[],
-    items3:[],
-    items4: []
+    items3:[]
   },
   //将_id数据传到do_answer页面
   do_answer: function (e) {
@@ -107,9 +104,10 @@ Page({
         openid = res.result.openId;
         console.log('****' + openid);
         //出题记录的数据读取
-        questionnaire.where({
-          _openid: openid,
+        answer.where({
+          raiseOpenid: openid,
         })
+          .orderBy('time', 'desc')
           .get().then((res2) => {
             // res2.data是查询到的记录数组
             var length = res2.data.length;
@@ -118,21 +116,11 @@ Page({
                    items: res2.data
             })
           });
-        answer2.where({
-          raiseOpenid: openid,
-        })
-          .get().then((res5) => {
-            // res2.data是查询到的记录数组
-            var length = res5.data.length;
-            console.log(res5.data);
-            this.setData({
-              items4: res5.data
-            })
-          });
           //做题记录的数据读取
         answer.where({
           _openid: openid,
         })
+          .orderBy('time', 'desc')
           .get().then((res3) => {
             // res2.data是查询到的记录数组
             var length = res3.data.length;
@@ -145,6 +133,7 @@ Page({
         soul_answer.where({
           _openid: openid,
         })
+          .orderBy('time','desc')
           .get().then((res4) => {
             // res2.data是查询到的记录数组
             var length = res4.data.length;
