@@ -1,13 +1,14 @@
 {
   "pages": [
-    "pages/reply/result/result",
+    "pages/genderMatch/genderMatch",
     "pages/entry/index",
     "pages/share/share",
-    "pages/reply/entry/entry",
     "pages/myrecord/myrecord",
     "pages/question/question",
     "pages/wait/wait",
+    "pages/reply/entry/entry",
     "pages/reply/content/content",
+    "pages/reply/result/result",
     "pages/reply/answer/answer",
     "pages/index/index",
     "pages/answer/do_answer/do_answer",
@@ -16,8 +17,7 @@
     "pages/soulMatch/soulMatch",
     "pages/soulReply/result/result",
     "pages/soulReply/content/content",
-    "pages/soulQuestion/soul_question",
-    "pages/genderMatch/genderMatch"
+    "pages/soulQuestion/soul_question"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

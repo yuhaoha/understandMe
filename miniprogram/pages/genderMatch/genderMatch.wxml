@@ -1,12 +1,4 @@
 <view class='index' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/main_background1.jpg?sign=1b2fa4563c7084fa35bea55d54a066b7&t=1556416222)'>
-  <view class='infoview'>
-    <view class='headview'>
-    <open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data>
-    </view>
-    <view class='wordview'> 
-      <open-data class='nickname' type="userNickName"></open-data>
-    </view>
-  </view>
   <view class='body'>
     <view class='widgets'>
       <view class='widgets__item-match' bindtap='maleMatch'>

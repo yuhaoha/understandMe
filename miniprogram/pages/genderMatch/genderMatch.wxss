@@ -31,7 +31,7 @@ height:100%
     padding-right: 15px;
     overflow: hidden;
     float: left;
-    width: 92%;
+    width: 100%;
 }
 .widgets__item-begin{
     margin-top: 20%;
@@ -79,25 +79,8 @@ height:100%
     width: 30px;
     height: 30px;
 }
-.infoview{
-  margin-right: 10px;
-}
-.headview{
-  height: 100rpx;
-  width: 100rpx;
-  float: right;
-  margin-top: 13%;
-  margin-right: 3%;
-  display:block; 
-  overflow:hidden; 
-  border-radius: 50%;
-}
 .nickname{
   color: #888888;
   font-size: 14px;
   margin-left: 24px;
-}
-.wordview{
-  float: right;
-  margin-right: 1%;
 }
