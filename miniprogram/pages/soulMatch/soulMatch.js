@@ -61,16 +61,30 @@ Page({
 
   // 开始答题匹配
   answer_question:function(){
-    question_naires.doc(choose_id).get({
-      success(res){
-        //console.log(res.data)
-        //将对象转为string
-        var submit_people_questionnaire = JSON.stringify(res.data)
-        wx.navigateTo({
-          url: '../soulReply/content/content?submit_people_questionnaire=' + submit_people_questionnaire,
-        })
-      }
-    })
+    if(gender == '0'){
+      female_question_naires.doc(choose_id).get({
+        success(res) {
+          console.log(res.data)
+          //将对象转为string
+          var submit_people_questionnaire = JSON.stringify(res.data)
+          wx.navigateTo({
+            url: '../soulReply/content/content?submit_people_questionnaire=' + submit_people_questionnaire,
+          })
+        }
+      })
+    }
+    else{
+      question_naires.doc(choose_id).get({
+        success(res) {
+          console.log(res.data)
+          //将对象转为string
+          var submit_people_questionnaire = JSON.stringify(res.data)
+          wx.navigateTo({
+            url: '../soulReply/content/content?submit_people_questionnaire=' + submit_people_questionnaire,
+          })
+        }
+      })
+    }
   }, 
 
   /**

@@ -7,6 +7,7 @@ var max_number = 1;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 //获取集合引用
 const qnColl = db.collection('soul_questionnaire');
+const female_qnColl = db.collection('female_soul_questionnaire');
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
@@ -211,17 +212,31 @@ Page({
     head_photo = submit_people_questionnaire.avatar_url
     nickname = submit_people_questionnaire.username
     wx_number = submit_people_questionnaire.weixin
+    var gender = submit_people_questionnaire.gender
     // 获取问卷id
     questionnaireId = submit_people_questionnaire._id;
-    qnColl.doc(questionnaireId).get()
-      .then(res => {
-        // 存在记录数组中
-        questions = res.data.questions;
-        for (var i = 0; i < 10; i++) {
-          questions[i]['myChoice'] = null;
-        }
-        setNewData(this);
-      });
+    if(gender == '1'){
+      qnColl.doc(questionnaireId).get()
+        .then(res => {
+          // 存在记录数组中
+          questions = res.data.questions;
+          for (var i = 0; i < 10; i++) {
+            questions[i]['myChoice'] = null;
+          }
+          setNewData(this);
+        })
+    }
+    else{
+      female_qnColl.doc(questionnaireId).get()
+        .then(res => {
+          // 存在记录数组中
+          questions = res.data.questions;
+          for (var i = 0; i < 10; i++) {
+            questions[i]['myChoice'] = null;
+          }
+          setNewData(this);
+        })
+    }
   },
 
   onUnload: function () {
