@@ -7,8 +7,6 @@ var openid;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' }); 
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
-const answer2 = db.collection('reply_questionnaire');
-const questionnaire = db.collection('questionnaire');
 const soul_answer = db.collection('reply_soul_questionnaire');
 //获取应用实例  
 
@@ -23,8 +21,7 @@ Page({
     currentSelect: 1,
     items:[], 
     items2:[],
-    items3:[],
-    items4: []
+    items3:[]
   },
   //将_id数据传到do_answer页面
   do_answer: function (e) {
@@ -107,8 +104,8 @@ Page({
         openid = res.result.openId;
         console.log('****' + openid);
         //出题记录的数据读取
-        questionnaire.where({
-          _openid: openid,
+        answer.where({
+          raiseOpenid: openid,
         })
           .get().then((res2) => {
             // res2.data是查询到的记录数组
@@ -118,7 +115,7 @@ Page({
                    items: res2.data
             })
           });
-        answer2.where({
+        answer.where({
           raiseOpenid: openid,
         })
           .get().then((res5) => {

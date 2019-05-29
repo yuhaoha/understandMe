@@ -7,30 +7,13 @@
 </view>
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 45}}px" bindchange="bindChange">
   <!--出题记录-->
-  <!-- <swiper-item>  
-      <view wx:for="{{items}}" class='page_card'data-index="{{index}}" bindtap='do_answer'>
-        <view class='page-xx' >
-            <image src='{{item.raiseAvatarUrl}}' class= 'avatar'></image>
-            <view class='page-xx-text' style='width:90%'>
-              <view class='xx-text-name'>
-                <text class ="text-name">{{item.raiseNickName}} </text> 
-                <text class ="jian-text">正确率：{{item.rate}}%</text>
-              </view>
-            </view>
-        </view>
-        <view class="btn">
-          <view style='margin:7px;display:flex;flex-direction:row;'>
-            <button class="btn-wx" > 查看TA的答案</button>
-          </view>
-        </view>
-      </view> 
-    </swiper-item> -->
-  <!-- <swiper-item>
+  <swiper-item>
+  <scroll-view scroll-y="true"> 
     <view class="cu-list menu-avatar">
       <view class="cu-item" wx:for="{{items}}" wx:key="{{item._id}}" data-index="{{index}}" bindtap='do_answer'>
-        <view class="cu-avatar round lg" style="background-image:url({{item.raiseAvatarUrl}});"></view>
+        <view class="cu-avatar round lg" style="background-image:url({{item.replyAvatarUrl}});"></view>
         <view class="content">
-          <view class="text-grey">{{item.raiseNickName}}</view>
+          <view class="text-grey">{{item.replyNickName}}</view>
           <view class="text-gray text-sm flex">
             <text class="text-cut">查看TA的答案</text>
           </view>
@@ -40,50 +23,9 @@
         </view>
       </view>
     </view>
-  </swiper-item> -->
-  <swiper-item>
-    <scroll-view scroll-y="true"> 
-      <view class="cu-timeline" wx:for="{{items}}" wx:for-item="questionnaire">
-      <view class="cu-time">{{questionnaire.time}}</view>
-      <view class="cu-item">
-        <view class="content bg-grey shadow-blur">
-        <view class="cu-list menu-avatar radius">
-        <view class="cu-item" wx:for="{{items4}}" wx:for-item="record" wx:if="questionnaire._id==record.questionnaireId" wx:key="{{record._id}}" data-index="{{index}}" bindtap='do_answer'>
-          <view class="cu-avatar round lg" style="background-image:url({{record.replyAvatarUrl}});"></view>
-          <view class="content">
-            <view class="text-grey">{{record.replyNickName}}</view>
-            <view class="text-gray text-sm">
-              <text></text> 查看TA的答卷</view>
-          </view>
-          <view class="action">
-            <view class="text-grey text-xs">{{record.time}}</view>
-          </view>
-        </view>
-      </view>
-      </view>
-      </view>
-    </view>
     </scroll-view>
   </swiper-item>
   <!--做题记录-->
-  <!-- <swiper-item>  
-     <view wx:for-items="{{items2}}" wx:key="{{item._id}}" class='page_card' data-index="{{index}}" bindtap='my_answer'>
-      <view class='page-xx' >
-        <image src='{{item.raiseAvatarUrl}}' class= 'avatar'></image>
-          <view class='page-xx-text' style='width:90%'>
-            <view class='xx-text-name'>
-              <text class ="text-name">{{item.raiseNickName}} </text> 
-              <text class ="jian-text">正确率：{{item.rate}}%</text>
-            </view>
-          </view>
-      </view>
-      <view class="btn">
-       <view style='margin:auto;display:flex;flex-direction:row;'>
-          <button class="btn-wx" bindtap='answer'> 查看TA的答案</button>
-        </view>
-      </view>
-    </view> 
-    </swiper-item> -->
   <swiper-item>
     <scroll-view scroll-y="true">
       <view class="cu-list menu-avatar">
@@ -103,24 +45,6 @@
     </scroll-view>
   </swiper-item>
   <!--灵魂匹配-->
-  <!-- <swiper-item>  
-     <view wx:for-items="{{items3}}" class='page_card'wx:key="{{item._id}}"data-index="{{index}}"bindtap='soul_answer'>
-      <view class='page-xx' >
-        <image src='{{item.avatar_url}}' class= 'avatar'></image>
-          <view class='page-xx-text' style='width:90%'>
-            <view class='xx-text-name'>
-              <text class ="text-name">{{item.weixin}} </text> 
-              <!-- <text class ="jian-text">正确率：{{item.rate}}%</text> 
-            </view>
-          </view>
-      </view>
-      <view class="btn">
-       <view style='margin:auto;display:flex;flex-direction:row;'>
-          <button class="btn-wx" bindtap='answer'> 查看TA的答案</button>
-        </view>
-      </view>
-    </view> 
-    </swiper-item> -->
   <swiper-item>
     <scroll-view scroll-y="true">
       <view class="cu-list menu-avatar">
