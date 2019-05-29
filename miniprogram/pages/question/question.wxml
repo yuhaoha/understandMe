@@ -15,7 +15,7 @@
       </view>
   </view>
   <view class='change'>
-    <button class="round bg-white lg" bindtap='previousQuestion'>上一题</button>
-    <button class="round bg-white lg"  bindtap='changeQuestion'>换一题</button>
+    <button class="cu-btn round bg-white lg btn-member" bindtap='previousQuestion'>上一题</button>
+    <button class="cu-btn round bg-white lg btn-member"  bindtap='changeQuestion'>换一题</button>
   </view>
 </view>

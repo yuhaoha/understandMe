@@ -82,7 +82,7 @@
     </view>
   </view>
 </view>
-  <view class='change'>
-    <button class="round bg-blue lg" bindtap='lookAnswer'>ta的答案</button>
-    <button class="round bg-blue lg"  bindtap='homePage'>返回首页</button>
+  <view class='btn-group'>
+    <button class="cu-btn round bg-white lg btn-member" bindtap='lookAnswer'>ta的答案</button>
+    <button class="cu-btn round bg-white lg btn-member"  bindtap='homePage'>返回首页</button>
   </view>

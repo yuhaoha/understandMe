@@ -80,3 +80,7 @@
 page{
 height:100%
 }
+.btn-member{
+  float: left;
+  margin-left: 15%;
+}
