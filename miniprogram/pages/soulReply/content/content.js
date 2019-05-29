@@ -226,6 +226,7 @@ Page({
     current_number = 1;
     max_number = 1;
     questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+    rate = 0;
   },
 
 })
