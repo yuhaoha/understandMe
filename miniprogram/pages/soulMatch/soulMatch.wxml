@@ -35,9 +35,9 @@
           <view class="cu-tag round bg-blue light">旅行</view>
         </view>
       </view>
-    </view>
+    </view> -->
   <view class='question-answer'>
     <button id='submit_question' bindtap='change_soul'>刷新灵魂</button>
     <button id='answer_question' bindtap='answer_question'>开始匹配</button>
-  </view> -->
+  </view>
 </view>

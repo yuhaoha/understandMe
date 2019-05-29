@@ -7,6 +7,7 @@ var openid;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' }); 
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
+const answer2 = db.collection('reply_questionnaire');
 const questionnaire = db.collection('questionnaire');
 const soul_answer = db.collection('reply_soul_questionnaire');
 //获取应用实例  
@@ -117,7 +118,7 @@ Page({
                    items: res2.data
             })
           });
-        answer.where({
+        answer2.where({
           raiseOpenid: openid,
         })
           .get().then((res5) => {
