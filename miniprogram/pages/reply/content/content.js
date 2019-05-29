@@ -1,7 +1,7 @@
 // pages/reply/content/content.js
 var questionnaireId; //可从分享页面获得
 var nickName; //用户名
-var avatarUrl;  //用户头像 
+var avatarUrl; //用户头像 
 var raiseOpenid; //出题者openid
 var raiseNickName; //出题者昵称
 var raiseAvatarUrl; //出题者头像
@@ -9,14 +9,16 @@ var raiseAvatarUrl; //出题者头像
 var current_number = 1;
 var max_number = 1;
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({
+  env: 'wp-test-32ff30'
+});
 //获取集合引用
 const qnColl = db.collection('questionnaire');
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
 // 日期格式化
-Date.prototype.Format = function (fmt) { //author: meizz 
+Date.prototype.Format = function(fmt) { //author: meizz 
   var o = {
     "M+": this.getMonth() + 1, //月份 
     "d+": this.getDate(), //日 
@@ -40,18 +42,15 @@ function changeColor(that) {
     that.setData({
       colorA: '#7B68EE',
     })
-  }
-  else if (i == 1) {
+  } else if (i == 1) {
     that.setData({
       colorB: '#7B68EE'
     })
-  }
-  else if (i == 2) {
+  } else if (i == 2) {
     that.setData({
       colorC: '#7B68EE'
     })
-  }
-  else if (i == 3) {
+  } else if (i == 3) {
     that.setData({
       colorD: '#7B68EE'
     })
@@ -66,8 +65,7 @@ function changeVisible(that) {
       visiableC: false,
       visiableD: false
     })
-  }
-  else if (answerLength == 3) {
+  } else if (answerLength == 3) {
     that.setData({
       visiableD: false
     })
@@ -124,19 +122,19 @@ function addQuestionnaire() {
     }
   }
   qnReplyColl.add({
-    //插入 data字段表示需新增的JSON数据
-    data: {
-      questions: questions,
-      questionnaireId: questionnaireId,
-      raiseOpenid:raiseOpenid,
-      raiseAvatarUrl:raiseAvatarUrl,
-      raiseNickName:raiseNickName,
-      replyNickName: nickName,
-      replyAvatarUrl: avatarUrl,
-      rate:rate,
-      time:time
-    }
-  })
+      //插入 data字段表示需新增的JSON数据
+      data: {
+        questions: questions,
+        questionnaireId: questionnaireId,
+        raiseOpenid: raiseOpenid,
+        raiseAvatarUrl: raiseAvatarUrl,
+        raiseNickName: raiseNickName,
+        replyNickName: nickName,
+        replyAvatarUrl: avatarUrl,
+        rate: rate,
+        time: time
+      }
+    })
     .then(res => {
       // 跳转到答题结果页面，传递答题问卷ID作为参数
       var replyQnId = res._id;
@@ -157,54 +155,56 @@ Page({
     // 题号
     number: 1,
     // 当前问题，包含title(string) answer(array)
-    question: {
-    },
+    question: {},
     // 是否有C,D选项
     visiableC: true,
     visiableD: true
   },
 
   // 选择A
-  chooseA: function (e) {
+  chooseA: function(e) {
     // 存储上一题的选项
     questions[current_number - 1].myChoice = 0;
     displayNewPage(this);
   },
 
   // 选择B
-  chooseB: function (e) {
+  chooseB: function(e) {
     // 存储上一题的选项
     questions[current_number - 1].myChoice = 1;
     displayNewPage(this);
   },
 
   // 选择C
-  chooseC: function (e) {
+  chooseC: function(e) {
     // 存储上一题的选项
     questions[current_number - 1].myChoice = 2;
     displayNewPage(this);
   },
 
   // 选择D
-  chooseD: function (e) {
+  chooseD: function(e) {
     // 存储上一题的选项
     questions[current_number - 1].myChoice = 3;
     displayNewPage(this);
   },
 
   // 点击上一题按钮
-  previousQuestion: function (e) {
+  previousQuestion: function(e) {
     current_number--;
     setNewData(this);
   },
 
   // 加载页面
-  onLoad: function (res) {
+  onLoad: function(res) {
     // 接收分享界面传来的问卷Id
     questionnaireId = res.questionnaireId;
     nickName = res.nickName;
     avatarUrl = res.avatarUrl;
-    console.log('昵称：'+nickName+' 头像：'+avatarUrl);
+    console.log('昵称：' + nickName + ' 头像：' + avatarUrl);
+  },
+
+  onShow:function(){
     qnColl.doc(questionnaireId).get()
       .then(res => {
         // 记录出题者的openid
@@ -218,6 +218,16 @@ Page({
         }
         setNewData(this);
       });
+  },
+
+  onUnload: function() {
+    raiseOpenid = ""; //出题者openid
+    raiseNickName = ""; //出题者昵称
+    raiseAvatarUrl = ""; //出题者头像
+    //当前题号
+    current_number = 1;
+    max_number = 1;
+    questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
   },
 
 })
