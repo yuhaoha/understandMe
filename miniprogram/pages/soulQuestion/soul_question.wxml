@@ -16,8 +16,8 @@
       </view>
   </view>
   <view class='change'>
-    <button id='previous_question' bindtap='previousQuestion'>上一题</button>
-    <button id='change_question' bindtap='changeQuestion'>换一题</button>
+    <button id='previous_question' class='cu-btn round bg-white lg btn-member' bindtap='previousQuestion'>上一题</button>
+    <button id='change_question' class='cu-btn round bg-white lg btn-member' bindtap='changeQuestion'>换一题</button>
   </view>
   </block>
   <block wx:if="{{number===11}}">

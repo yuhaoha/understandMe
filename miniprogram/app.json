@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/reply/result/result",
+    "pages/soulQuestion/soul_question",
     "pages/entry/index",
     "pages/share/share",
     "pages/myrecord/myrecord",
     "pages/wait/wait",
     "pages/question/question",
     "pages/reply/entry/entry",
+    "pages/reply/result/result",
     "pages/reply/content/content",
     "pages/reply/answer/answer",
     "pages/index/index",
@@ -15,7 +16,6 @@
     "pages/answer/soul_answer/soul_answer",
     "pages/soulMatch/soulMatch",
     "pages/soulReply/content/content",
-    "pages/soulQuestion/soul_question",
     "pages/soulReply/result/result",
     "pages/genderMatch/genderMatch"
   ],
