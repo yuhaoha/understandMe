@@ -15,6 +15,23 @@ const qnColl = db.collection('questionnaire');
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
+// 日期格式化
+Date.prototype.Format = function (fmt) { //author: meizz 
+  var o = {
+    "M+": this.getMonth() + 1, //月份 
+    "d+": this.getDate(), //日 
+    "h+": this.getHours(), //小时 
+    "m+": this.getMinutes(), //分 
+    "s+": this.getSeconds(), //秒 
+    "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+    "S": this.getMilliseconds() //毫秒 
+  };
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+}
+
 //将选择过的答案颜色设置为蓝色
 function changeColor(that) {
   // 如果是新题的话，i=null,不会改变颜色
@@ -100,7 +117,7 @@ function addQuestionnaire() {
   const qnReplyColl = db.collection('reply_questionnaire');
   var rate = 0;
   // 获取当前时间
-  var time = new Date();
+  var time = new Date().Format("yyyy-MM-dd hh:mm");
   for (var i = 0; i < 10; i++) {
     if (questions[i]['choice'] == questions[i]['myChoice']) {
       rate = rate + 10;
