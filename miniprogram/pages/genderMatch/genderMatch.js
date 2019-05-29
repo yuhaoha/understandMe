@@ -10,13 +10,13 @@ Page({
   },
   
   maleMatch: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../soulMatch/soulMatch?gender=' + '1',
     })
   },
 
   femaleMatch: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../soulMatch/soulMatch?gender=' + '0',
     })
   },
