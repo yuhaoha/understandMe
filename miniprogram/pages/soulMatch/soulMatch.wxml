@@ -3,7 +3,7 @@
   <block wx:for='{{question_naire}}'>
   <view id='{{index}}' data-id='{{item._id}}' bindtap='choose_question'>
     <block wx:if='{{index == clickID}}'>
-      <view class='list-item' style='background:grey'>
+      <view class='list-item' style='background:rgb(238, 235, 235)'>
         <image class='left'   
         src='{{item.avatar_url}}'></image>
         <view class='right'>
@@ -22,22 +22,8 @@
     </block>
   </view>
   </block>
-  <!-- <view class="cu-list menu-avatar">
-      <view id='{{index}}' class="cu-item" wx:for="{{question_naire}}" wx:key="{{item._id}}" data-id='{{item._id}}'  bindtap='answer_question'>
-        <view class="cu-avatar round lg" style="background-image:url({{item.avatar_url}});"></view>
-        <view class="content">
-          <view class="text-grey">{{item.username}}</view>
-          <view class="text-gray text-sm flex">
-            <text class="text-cut">回答我的问题</text>
-          </view>
-        </view>
-        <view class="action">
-          <view class="cu-tag round bg-blue light">旅行</view>
-        </view>
-      </view>
-    </view>
   <view class='question-answer'>
     <button id='submit_question' bindtap='change_soul'>刷新灵魂</button>
     <button id='answer_question' bindtap='answer_question'>开始匹配</button>
-  </view> -->
+  </view>
 </view>

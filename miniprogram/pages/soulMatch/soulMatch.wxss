@@ -12,11 +12,12 @@
 }
 
 .list-item{  
-  height: 100rpx;  
+  height: 120rpx;  
   display: flex;  
   flex-direction: row;  
   padding:10rpx; 
-  background-color: #EECFA1; 
+  background-color: rgb(253, 250, 245); 
+  border-bottom: 2rpx solid#777777;
 }
 
 .left{  
@@ -46,7 +47,7 @@
 }
 
 .detail-hover{
-    background: gray;
+    background: rgb(238, 235, 235);
 }
 
 page{

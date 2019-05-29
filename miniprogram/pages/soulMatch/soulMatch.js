@@ -13,13 +13,7 @@ var chosen_question;
 var gender = '';
 //获取题库数目
 var question_naires_count;
-if (gender == '1') {
-  console.log('aaa#', question_naires_count)
-   
-}
-if(gender == '0') {
-  
-}
+
 
 Page({
 
@@ -34,9 +28,7 @@ Page({
     var that = this
     // count 随机获取数据库查询开始点
     if(gender == '1'){
-      console.log('%%%%', question_naires_count)
       var count = (Math.round(Math.random() * (question_naires_count - 6)))
-      console.log(count)
       question_naires.skip(count).limit(5).get({
         success: function (res) {
           that.setData({ question_naire: res.data })
@@ -48,7 +40,6 @@ Page({
     }
     else{
       var count = (Math.round(Math.random() * (question_naires_count - 6)))
-      console.log(count)
       female_question_naires.skip(count).limit(5).get({
         success: function (res) {
           that.setData({ question_naire: res.data })
@@ -93,7 +84,6 @@ Page({
       var count = (Math.round(Math.random() * 5))
       question_naires.count().then(res => {
         question_naires_count = res.total
-        console.log('####', question_naires_count)
       }) 
       // 获取问卷
       question_naires.skip(count).limit(5).get({
