@@ -25,9 +25,8 @@
   <view class="section">
   <view class="cu-form-group">
 		<view class="title">您输入的是</view>
-		<input placeholder="您的微信号" value='{{inputValue}}'></input>
+		<input placeholder="您的微信号" value='{{inputValue}}' bindinput="bindKeyInput"></input>
 	</view>
-  <!-- <input bindinput="bindKeyInput" placeholder="输入同步到view中" /> -->
   <view class='change'>
   <button class='cu-btn round bg-white lg btn-member' bindtap="cancel_button">取消</button>
   <button class='cu-btn round bg-white lg btn-member' bindtap="submit_button">提交</button>
