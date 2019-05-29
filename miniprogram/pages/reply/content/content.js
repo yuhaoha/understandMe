@@ -191,7 +191,8 @@ Page({
 
   // 点击上一题按钮
   previousQuestion: function(e) {
-    current_number--;
+    if(current_number>1)
+      current_number--;
     setNewData(this);
   },
 
