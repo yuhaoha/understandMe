@@ -19,6 +19,7 @@
           </view>
         </view>
         <view class="action">
+          <view class="text-grey text-xs">{{item.time}}</view>
           <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
         </view>
       </view>
@@ -38,6 +39,7 @@
           </view>
         </view>
         <view class="action">
+          <view class="text-grey text-xs">{{item.time}}</view>
           <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
         </view>
       </view>
@@ -59,7 +61,8 @@
           </view>
         </view>
         <view class="action">
-        <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
+          <view class="text-grey text-xs">{{item.time}}</view>
+          <view class="cu-tag round bg-grey sm">{{item.rate}}%</view>
       </view> 
       </view>
     </view>

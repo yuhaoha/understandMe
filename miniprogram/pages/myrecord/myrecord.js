@@ -107,6 +107,7 @@ Page({
         answer.where({
           raiseOpenid: openid,
         })
+          .orderBy('time', 'desc')
           .get().then((res2) => {
             // res2.data是查询到的记录数组
             var length = res2.data.length;
@@ -115,21 +116,11 @@ Page({
                    items: res2.data
             })
           });
-        answer.where({
-          raiseOpenid: openid,
-        })
-          .get().then((res5) => {
-            // res2.data是查询到的记录数组
-            var length = res5.data.length;
-            console.log(res5.data);
-            this.setData({
-              items4: res5.data
-            })
-          });
           //做题记录的数据读取
         answer.where({
           _openid: openid,
         })
+          .orderBy('time', 'desc')
           .get().then((res3) => {
             // res2.data是查询到的记录数组
             var length = res3.data.length;
@@ -142,6 +133,7 @@ Page({
         soul_answer.where({
           _openid: openid,
         })
+          .orderBy('time','desc')
           .get().then((res4) => {
             // res2.data是查询到的记录数组
             var length = res4.data.length;
