@@ -60,3 +60,10 @@ height:100%
   margin-top: 30%;
   background-color: #CBA7F9;
 }
+.change{
+  margin-top: 10%;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center; 
+}

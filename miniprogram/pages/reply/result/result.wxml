@@ -1,4 +1,4 @@
-<!--pages/reply/result/result.wxml-->
+<!-- pages/reply/result/result.wxml
 <view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
 
   <view class='description'>
@@ -12,4 +12,77 @@
   <button bindtap='lookAnswer' class='buttonLook'> ta的答案 </button>
   <button bindtap='homePage' class='buttonHome'>返回首页</button>
 
+</view> -->
+
+<view class="cu-card dynamic {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{raiseAvatarUrl}});"></view>
+        <view class="content flex-sub">
+          <view>{{raiseNickName}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            201x年x月x日
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">
+      8说了，都是表面兄弟，正确率才{{rate}}%!
+    </view>
+    <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+    <image src="cloud://wp-test-32ff30.7770-wp-test-32ff30/image/reply/timg.jpeg" mode="widthFix"></image>
+      <!-- <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(cloud://wp-test-32ff30.7770-wp-test-32ff30/image/reply/timg.jpeg);" wx:for="{{isCard?9:1}}" wx:key="{{index}}"> -->
+      <!-- </view> -->
+    </view>
+    <view class="text-gray text-sm text-right padding">
+      <text class="cuIcon-attentionfill margin-lr-xs"></text> 20
+      <text class="cuIcon-appreciatefill margin-lr-xs"></text> 10
+      <text class="cuIcon-messagefill margin-lr-xs"></text> 2
+    </view>
+    <view class="cu-list menu-avatar comment solids-top">
+      <view class="cu-item">
+        <view class="cu-avatar round"><open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data></view>
+        <view class="content">
+          <view class="text-grey"><open-data class='nickname' type="userNickName"></open-data></view>
+          <view class="text-gray text-content text-df">
+            dbq，我错了
+          </view>
+          <view class="bg-grey padding-sm radius margin-top-sm  text-sm">
+            <view class="flex">
+              <view>{{raiseNickName}}：</view>
+              <view class="flex-sub">绝交吧：）</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">201x年x月x日</view>
+            <view>
+              <text class="cuIcon-appreciatefill text-red"></text>
+              <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="cu-avatar round cuIcon-peoplefill"></view>
+        <view class="content">
+          <view class="text-grey">Chalie Brown</view>
+          <view class="text-gray text-content text-df">
+            xswl
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">201x年x月x日</view>
+            <view>
+              <text class="cuIcon-appreciate text-gray"></text>
+              <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
+  <view class='change'>
+    <button class="round bg-blue lg" bindtap='lookAnswer'>ta的答案</button>
+    <button class="round bg-blue lg"  bindtap='homePage'>返回首页</button>
+  </view>
