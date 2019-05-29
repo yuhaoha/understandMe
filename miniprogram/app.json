@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/soulQuestion/soul_question",
     "pages/entry/index",
     "pages/share/share",
     "pages/myrecord/myrecord",
@@ -14,6 +13,7 @@
     "pages/answer/do_answer/do_answer",
     "pages/answer/my_answer/my_answer",
     "pages/answer/soul_answer/soul_answer",
+    "pages/soulQuestion/soul_question",
     "pages/soulMatch/soulMatch",
     "pages/soulReply/content/content",
     "pages/soulReply/result/result",

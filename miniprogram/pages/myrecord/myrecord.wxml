@@ -44,19 +44,19 @@
   <swiper-item>
     <scroll-view scroll-y="true"> 
       <view class="cu-timeline" wx:for="{{items}}" wx:for-item="questionnaire">
-      <view class="cu-time">06-17 01:30</view>
+      <view class="cu-time">{{questionnaire.time}}</view>
       <view class="cu-item">
         <view class="content bg-grey shadow-blur">
         <view class="cu-list menu-avatar radius">
-        <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url({{reply.raiseAvatarUrl}});"></view>
+        <view class="cu-item" wx:for="{{items4}}" wx:for-item="record" wx:if="questionnaire._id==record.questionnaireId" wx:key="{{record._id}}" data-index="{{index}}" bindtap='do_answer'>
+          <view class="cu-avatar round lg" style="background-image:url({{record.replyAvatarUrl}});"></view>
           <view class="content">
-            <view class="text-grey">{{reply.replyNickName}}</view>
+            <view class="text-grey">{{record.replyNickName}}</view>
             <view class="text-gray text-sm">
               <text></text> 查看TA的答卷</view>
           </view>
           <view class="action">
-            <view class="text-grey text-xs">{{reply.replyTime}}</view>
+            <view class="text-grey text-xs">{{record.time}}</view>
           </view>
         </view>
       </view>
