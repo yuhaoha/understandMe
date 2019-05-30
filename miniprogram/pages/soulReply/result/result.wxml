@@ -4,19 +4,19 @@
   <view class='description'>
     <text class='title'>你与</text>
     <view class='avatar'>
-    <image class='head_photo' src='cloud://wp-test-32ff30.7770-wp-test-32ff30/image/share/22727163.jpeg'></image>
+    <image class='head_photo' src='{{head_photo}}'></image>
     </view>
     <text class='title'>{{nickname}} 的灵魂契合程度</text>
     <text class='title'> {{rate}}%</text>
     <text class='title'>契合度低于80%无法获取对方的联系方式</text>
   </view>
   <image src="cloud://wp-test-32ff30.7770-wp-test-32ff30/image/reply/WechatIMG110.jpeg" mode="widthFix" class='photo'></image>
-  <button bindtap='homePage' class='cu-btn block bg-blue margin-tb-sm lg'>返回首页</button>
+  <!--button bindtap='homePage' class='cu-btn block bg-blue margin-tb-sm lg'>返回首页</button-->
   </block>
   <block wx:if='{{rate >= 80}}'>
   <text class='title'> 恭喜你与对方的灵魂契合度为{{rate}}% </text>
   <text class='title'>对方的微信号码为：{{wx_number}}</text>
   <image src="cloud://wp-test-32ff30.7770-wp-test-32ff30/image/reply/WechatIMG109.jpeg" mode="widthFix" class='photo'></image>
-  <button bindtap='homePage' class='cu-btn block bg-blue margin-tb-sm lg'>返回首页</button>
+  <!-- <button bindtap='homePage' class='cu-btn block bg-blue margin-tb-sm lg'>返回首页</button>-->
   </block>
 </view>

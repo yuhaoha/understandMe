@@ -19,6 +19,8 @@ var head_photo;
 var nickname;
 // 匹配问卷人的微信
 var wx_number;
+// 匹配出题人的性别
+var gender;
 //答题正确率
 var rate = 0;
 
@@ -146,7 +148,7 @@ function addQuestionnaire() {
       // 跳转到答题结果页面，传递答题问卷ID作为参数
       var replyQnId = res._id;
       wx.redirectTo({
-        url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo + '&wx_number=' + wx_number
+        url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo + '&wx_number=' + wx_number + '&gender=' + gender
       });
     })
     .catch(console.error);
@@ -212,7 +214,7 @@ Page({
     head_photo = submit_people_questionnaire.avatar_url
     nickname = submit_people_questionnaire.username
     wx_number = submit_people_questionnaire.weixin
-    var gender = submit_people_questionnaire.gender
+    gender = submit_people_questionnaire.gender
     // 获取问卷id
     questionnaireId = submit_people_questionnaire._id;
     if(gender == '1'){

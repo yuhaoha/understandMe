@@ -15,6 +15,8 @@ const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 const questionColl = db.collection('question');
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+//问卷集合的题目总数
+var question_number;
 
 // 日期格式化
 Date.prototype.Format = function (fmt) { //author: meizz 
@@ -36,7 +38,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
 // 随机获取某个题目id
 function getId()
 {
-  var randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
+  var randomId = (Math.round(Math.random() * (question_number - 1)) + 1).toString();
   //已经浏览过此记录
   while(visitedArr.indexOf(randomId)>-1)
   {
@@ -271,17 +273,21 @@ Page({
     visitedIndex = 0;
     current_number = 1;
     max_number = 1;
-    var id = getId();
-    questionColl.doc(id).get()
-      .then(res => {
-        // 存在记录数组中
-        questions[current_number - 1] = {
-          number: current_number,
-          title: res.data.title,
-          answer: res.data.answer
-        };
-        setNewData(this);
-      });
+    //获取题目总数量
+    questionColl.count().then(res => {
+      question_number = res.total
+      var id = getId();
+      questionColl.doc(id).get()
+        .then(res => {
+          // 存在记录数组中
+          questions[current_number - 1] = {
+            number: current_number,
+            title: res.data.title,
+            answer: res.data.answer
+          };
+          setNewData(this);
+        });
+    })
   },
 
   /**
