@@ -61,7 +61,7 @@ Page({
 
   // 开始答题匹配
   answer_question:function(){
-    if(gender == '0'){
+    if(gender == '2'){
       female_question_naires.doc(choose_id).get({
         success(res) {
           console.log(res.data)

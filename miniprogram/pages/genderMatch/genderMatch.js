@@ -24,7 +24,7 @@ Page({
 
   femaleMatch: function () {
     wx.navigateTo({
-      url: '../soulMatch/soulMatch?gender=' + '0',
+      url: '../soulMatch/soulMatch?gender=' + '2',
     })
   },
 

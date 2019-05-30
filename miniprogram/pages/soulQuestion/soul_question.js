@@ -147,7 +147,7 @@ function addQuestionnaire() {
   const male_questionnaireColl = db.collection('soul_questionnaire');
   const female_questionnaireColl = db.collection('female_soul_questionnaire');
   var time = new Date().Format("yyyy-MM-dd hh:mm");
-  if(gender == '0'){
+  if(gender == '2'){
     female_questionnaireColl.add({
       data: {
         questions: questions,
