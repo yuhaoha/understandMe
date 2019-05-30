@@ -22,15 +22,26 @@ Page({
   // 开始答题
   replyQuestion:function(e)
   {
-    var nickName = this.data.nickName;
-    var avatarUrl = this.data.avatarUrl;
-    var openid = this.data.openid;
+    // 获取用户头像，昵称
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
-          // 已经授权，进入对应页面
-          wx.redirectTo({
-            url: '/pages/reply/content/content?questionnaireId=' + questionnaireId + '&nickName=' + nickName + '&avatarUrl=' + avatarUrl + '&openid=' + openid,
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                nickName: res.userInfo.nickName,
+              })
+              console.log(res.userInfo);
+              var nickName = this.data.nickName;
+              var avatarUrl = this.data.avatarUrl;
+              var openid = this.data.openid;
+              // 已经授权，进入对应页面
+              wx.redirectTo({
+                url: '/pages/reply/content/content?questionnaireId=' + questionnaireId + '&nickName=' + nickName + '&avatarUrl=' + avatarUrl + '&openid=' + openid,
+              })
+            }
           })
         }
       }
@@ -52,23 +63,6 @@ Page({
     // console.log('分享的问卷ID：' + questionnaireId);
     questionnaireId = res1.questionnaireId;
     console.log('分享的问卷ID：' + questionnaireId);
-    // 获取用户头像，昵称
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                nickName: res.userInfo.nickName,
-              })
-              console.log(res.userInfo)
-            }
-          })
-        }
-      }
-    })
   },
 
   onShow:function(){
