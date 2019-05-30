@@ -84,7 +84,7 @@ Page({
       // 点击的人显示的页面及参数
       path: '/pages/wait/wait?questionnaireId=' + questionnaireId,
       // 转发时显示的图片
-      imageUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/share.png?sign=9fbfbd9af2a6af87b88e2f129348e8fc&t=1556452619',
+      imageUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/share/share_background.jpg?sign=63963cb62989260ccf3625135dddac23&t=1559199977',
       success: function (res) {
         // 分享成功
         console.log('分享成功')
