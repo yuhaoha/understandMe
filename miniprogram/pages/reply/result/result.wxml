@@ -31,7 +31,7 @@
       8说了，都是表面兄弟，正确率才{{rate}}%!
     </view>
     <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
-    <image src="cloud://wp-test-32ff30.7770-wp-test-32ff30/image/reply/timg.jpeg" mode="widthFix"></image>
+    <image src="https://7770-wp-test-32ff3-1259348553.tcb.qcloud.la/image/timg.jpeg?sign=beff99389b4dc506517f1010d454831d&t=1559225446" mode="widthFix"></image>
       <!-- <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(cloud://wp-test-32ff30.7770-wp-test-32ff30/image/reply/timg.jpeg);" wx:for="{{isCard?9:1}}" wx:key="{{index}}"> -->
       <!-- </view> -->
     </view>
