@@ -49,6 +49,16 @@ height:100%
     border-radius: 2px;
     cursor: pointer;
 }
+
+.widgets__item-match_female{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: violet;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
 .widgets__item-record{
     margin-top: 10px;
     margin-bottom: 10px;

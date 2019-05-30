@@ -25,9 +25,17 @@ Page({
     var nickName = this.data.nickName;
     var avatarUrl = this.data.avatarUrl;
     var openid = this.data.openid;
-    wx.redirectTo({
-      url: '/pages/reply/content/content?questionnaireId=' + questionnaireId + '&nickName=' + nickName + '&avatarUrl=' + avatarUrl+ '&openid=' + openid,
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，进入对应页面
+          wx.redirectTo({
+            url: '/pages/reply/content/content?questionnaireId=' + questionnaireId + '&nickName=' + nickName + '&avatarUrl=' + avatarUrl + '&openid=' + openid,
+          })
+        }
+      }
     })
+
   },
 
   // 回到首页

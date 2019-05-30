@@ -11,20 +11,41 @@ Page({
   },
   
   enterQuestion: function () {
-    wx.navigateTo({
-      url: '../waitQuestion/wait',
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，进入对应页面
+          wx.navigateTo({
+            url: '../waitQuestion/wait',
+          })
+        }
+      }
     })
   },
 
   soulMatch: function () {
-    wx.navigateTo({
-      url: '../genderMatch/genderMatch',
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，进入对应页面
+          wx.navigateTo({
+            url: '../genderMatch/genderMatch',
+          })
+        }
+      }
     })
   },
 
   myrecord: function () {
-    wx.navigateTo({
-      url: '../myrecord/myrecord',
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，进入对应页面
+          wx.navigateTo({
+            url: '../myrecord/myrecord',
+          })
+        }
+      }
     })
   },
 

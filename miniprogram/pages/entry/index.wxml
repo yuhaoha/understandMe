@@ -16,30 +16,30 @@
 </view>
   <view class='body'>
     <view class='widgets'>
-      <view class='widgets__item-begin' bindtap='enterQuestion'>
+      <button class='widgets__item-begin' bindtap='enterQuestion' open-type='getUserInfo'>
         <view id="begin" class="widgets__info">
           <text class='widgets__info-name' >开始出题</text>
           <image class='widgets__info-img' src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/begin.png?sign=0bab15f608c81c038876cea802b4b26f&t=1556416247" background-size="cover"/>
         </view>
-      </view>
-      <view class='widgets__item-match' bindtap='soulMatch'>
+      </button>
+      <button class='widgets__item-match' bindtap='soulMatch' open-type='getUserInfo'>
         <view id="match" class="widgets__info">
           <text class='widgets__info-name'>灵魂匹配</text>
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
         </view>
-      </view>
-      <view class='widgets__item-record' bindtap='myrecord'>
+      </button>
+      <button class='widgets__item-record' bindtap='myrecord' open-type='getUserInfo'>
         <view id="record" class="widgets__info">
           <text class='widgets__info-name'>我的记录</text>
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/record.png?sign=bcf0dcebf754916bd29b5bee5f9ba3e3&t=1556416343" background-size="cover"/>
         </view>
-      </view>
-      <view class='widgets__item-about' bindtap='showAbout'>
+      </button>
+      <button class='widgets__item-about' bindtap='showAbout'>
         <view id="about" class="widgets__info">
           <text class='widgets__info-name'>关于</text>
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/about.png?sign=9121dd0a395ee2c00fefbd4890db7602&t=1556416283" background-size="cover"/>
         </view>
-      </view>
+      </button>
     </view>
   </view>
 </view>

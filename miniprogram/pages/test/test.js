@@ -14,4 +14,11 @@ Page({
 
   },
 
+  enterindex: function(options)
+  {
+    wx.navigateTo({
+      url: '/pages/entry/index',
+    })
+  }
+
 })

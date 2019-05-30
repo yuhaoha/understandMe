@@ -7,7 +7,7 @@
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>
         </view>
       </view>
-       <view class='widgets__item-match' bindtap='femaleMatch'>
+       <view class='widgets__item-match_female' bindtap='femaleMatch'>
         <view id="match" class="widgets__info">
           <text class='widgets__info-name'>匹配女生</text>
           <image class='widgets__info-img'src="https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/main/match.png?sign=a7a6f0580827cfc89f740a4d47aca829&t=1556416309" background-size="cover"/>

@@ -67,6 +67,6 @@
     <view class="date "> 13:26</view>
   </view>
 </view>
-  <button class="cu-btn block bg-blue margin-tb-sm lg"  bindtap='replyQuestion'>
+  <button class="cu-btn block bg-blue margin-tb-sm lg"  bindtap='replyQuestion' open-type='getUserInfo'>
   <text class="cuIcon-forward lg"></text>开始测试
   </button>
