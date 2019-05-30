@@ -4,7 +4,7 @@ var app = getApp()
 //为获取openid做准备
 var openid;  
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' }); 
+const db = wx.cloud.database({ env: 'wp-test-32ff3' }); 
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
 const soul_answer = db.collection('reply_soul_questionnaire');

@@ -1,7 +1,7 @@
 // miniprogram/pages/soulMatch/soulMatch.js
 
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({ env: 'wp-test-32ff3' });
 //获取集合引用男性出题者题目
 const question_naires = db.collection('soul_questionnaire');
 //获取女性出题人题目

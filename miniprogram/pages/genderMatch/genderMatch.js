@@ -1,7 +1,7 @@
 //index.js
 
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({ env: 'wp-test-32ff3' });
 //获取集合引用
 const questionColl = db.collection('question');
 //问卷集合的题目总数

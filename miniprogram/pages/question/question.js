@@ -10,7 +10,7 @@ var visitedIndex = 0;
 var current_number = 1; 
 var max_number = 1;
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({ env: 'wp-test-32ff3' });
 //获取集合引用
 const questionColl = db.collection('question');
 //存储答题结果的对象数组

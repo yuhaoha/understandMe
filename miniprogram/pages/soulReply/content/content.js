@@ -4,7 +4,7 @@ var questionnaireId; //可从分享页面获得
 var current_number = 1;
 var max_number = 1;
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({ env: 'wp-test-32ff3' });
 //获取集合引用
 const qnColl = db.collection('soul_questionnaire');
 const female_qnColl = db.collection('female_soul_questionnaire');

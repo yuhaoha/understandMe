@@ -3,7 +3,7 @@
 //回答问卷ID
 var replyQnId;
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({ env: 'wp-test-32ff3' });
 // 答题集合
 const replyColl = db.collection('reply_questionnaire');
 

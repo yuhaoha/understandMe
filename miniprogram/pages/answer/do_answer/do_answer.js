@@ -2,7 +2,7 @@
 var app = getApp()
 var id;
 //获取数据库引用
-const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+const db = wx.cloud.database({ env: 'wp-test-32ff3' });
 //获得集合引用
 const answer = db.collection('reply_questionnaire');
 Page({
