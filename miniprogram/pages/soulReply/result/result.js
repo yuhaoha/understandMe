@@ -8,7 +8,8 @@ const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 const replyColl = db.collection('reply_soul_questionnaire');
 // 对应的出题集合
 const submitColl = db.collection('soul_questionnaire');
-// 出题人微信号
+// 出题人性别
+var gender;
 
 Page({
 
@@ -29,14 +30,16 @@ Page({
 
   // 回到首页
   homePage: function (e) {
-    wx.redirectTo({
-      url: '/pages/soulMatch/soulMatch',
+    wx.navigateTo({
+      url: '/pages/soulMatch/soulMatch?gender=' + gender,
     })
   },
 
   onLoad: function (res) {
     var that = this
     replyQnId = res.replyQnId;
+    gender = res.gender
+    console.log(res.head_photo)
     this.setData({
       head_photo:res.head_photo,
       nickname:res.nickname,

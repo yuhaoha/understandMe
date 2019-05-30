@@ -10,6 +10,8 @@ var wx_number = 0;
 const db = wx.cloud.database({ env: 'wp-test-32ff30' });
 //获取集合引用
 const questionColl = db.collection('question');
+//问卷集合的题目总数
+var question_number;
 //存储答题结果的对象数组
 var questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 var username = ''
@@ -19,7 +21,7 @@ var avatar_url = ''
 // 随机获取某个题目id
 function getId()
 {
-  var randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
+  var randomId = (Math.round(Math.random() * (question_number - 1)) + 1).toString();
   //已经浏览过此记录
   while(visitedArr.indexOf(randomId)>-1)
   {
@@ -84,6 +86,7 @@ function displayNewPage(that)
     max_number++;
     // 已经完成10个题，将问卷存入数据库，跳到分享界面
     // 随机获取1-15之间的记录
+
     var id = getId();
     questionColl.doc(id).get()
       .then(res => {
@@ -286,17 +289,22 @@ Page({
     gender = res.gender
     //gender = '0'
     avatar_url = res.avatarUrl
-    var id = getId();
-    questionColl.doc(id).get()
-      .then(res => {
-        // 存在记录数组中
-        questions[current_number - 1] = {
-          number: current_number,
-          title: res.data.title,
-          answer: res.data.answer
-        };
-        setNewData(this);
-      });
+    //获取题目总数量
+    questionColl.count().then(res => {
+      question_number = res.total
+      var id = getId();
+      questionColl.doc(id).get()
+        .then(res => {
+          // 存在记录数组中
+          questions[current_number - 1] = {
+            number: current_number,
+            title: res.data.title,
+            answer: res.data.answer
+          };
+          setNewData(this);
+        });
+    })
+    
   },
 
   /**
@@ -310,7 +318,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
