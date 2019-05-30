@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/soulReply/result/result",
     "pages/entry/index",
     "pages/share/share",
     "pages/myrecord/myrecord",
