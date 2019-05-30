@@ -1,5 +1,12 @@
 //index.js
 
+//获取数据库引用
+const db = wx.cloud.database({ env: 'wp-test-32ff30' });
+//获取集合引用
+const questionColl = db.collection('question');
+//问卷集合的题目总数
+var question_number;
+
 Page({
   data: {
     avatarUrl: 'https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/user-unlogin.png?sign=fa83cd1525c7b0ad18c93e95b53e148a&t=1556781942',
@@ -29,7 +36,7 @@ Page({
           wx.getUserInfo({
             success: res => {
               wx.navigateTo({
-                url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl
+                url: '../soulQuestion/soul_question?username=' + res.userInfo.nickName + '&gender=' + res.userInfo.gender + '&avatarUrl=' + res.userInfo.avatarUrl + '&question_number=' + question_number
               })
             }
           })
@@ -41,8 +48,9 @@ Page({
 
   
   onLoad: function () {
-
-    // 获取用户信息
+    questionColl.count().then(res => {
+      question_number = res.total
+    })
   }
 
 

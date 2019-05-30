@@ -12,7 +12,7 @@ Page({
   
   enterQuestion: function () {
     wx.navigateTo({
-      url: '../question/question',
+      url: '../waitQuestion/wait',
     })
   },
 

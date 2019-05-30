@@ -16,7 +16,8 @@
     "pages/answer/soul_answer/soul_answer",
     "pages/soulMatch/soulMatch",
     "pages/soulReply/content/content",
-    "pages/genderMatch/genderMatch"
+    "pages/genderMatch/genderMatch",
+    "pages/waitQuestion/wait"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -290,21 +290,18 @@ Page({
     //gender = '0'
     avatar_url = res.avatarUrl
     //获取题目总数量
-    questionColl.count().then(res => {
-      question_number = res.total
-      var id = getId();
-      questionColl.doc(id).get()
-        .then(res => {
-          // 存在记录数组中
-          questions[current_number - 1] = {
-            number: current_number,
-            title: res.data.title,
-            answer: res.data.answer
-          };
-          setNewData(this);
-        });
-    })
-    
+    question_number = res.question_number
+    var id = getId();
+    questionColl.doc(id).get()
+      .then(res => {
+        // 存在记录数组中
+        questions[current_number - 1] = {
+          number: current_number,
+          title: res.data.title,
+          answer: res.data.answer
+        };
+        setNewData(this);
+      });
   },
 
   /**

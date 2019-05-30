@@ -268,26 +268,23 @@ Page({
         }
       }
     })
+    question_number = options.question_number
     questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
     visitedArr = new Array();
     visitedIndex = 0;
     current_number = 1;
     max_number = 1;
-    //获取题目总数量
-    questionColl.count().then(res => {
-      question_number = res.total
-      var id = getId();
-      questionColl.doc(id).get()
-        .then(res => {
-          // 存在记录数组中
-          questions[current_number - 1] = {
-            number: current_number,
-            title: res.data.title,
-            answer: res.data.answer
-          };
-          setNewData(this);
-        });
-    })
+    var id = getId();
+    questionColl.doc(id).get()
+      .then(res => {
+        // 存在记录数组中
+        questions[current_number - 1] = {
+          number: current_number,
+          title: res.data.title,
+          answer: res.data.answer
+        };
+        setNewData(this);
+      });
   },
 
   /**

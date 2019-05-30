@@ -37,22 +37,15 @@ Page({
 
   onLoad: function (res) {
     var that = this
+    
     replyQnId = res.replyQnId;
     gender = res.gender
     console.log(res.head_photo)
     this.setData({
       head_photo:res.head_photo,
       nickname:res.nickname,
-      wx_number:res.wx_number
+      wx_number:res.wx_number,
+      rate:res.rate
     })
-    replyColl.doc(replyQnId).get()
-      .then(res => {
-        var questions = res.data.questions;
-        // 相同率
-        var rate= res.data.rate
-        this.setData({
-          rate:rate
-        })
-      })
   },
 })

@@ -148,7 +148,7 @@ function addQuestionnaire() {
       // 跳转到答题结果页面，传递答题问卷ID作为参数
       var replyQnId = res._id;
       wx.redirectTo({
-        url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo + '&wx_number=' + wx_number + '&gender=' + gender
+        url: '/pages/soulReply/result/result?replyQnId=' + replyQnId + '&nickname=' + nickname + '&head_photo=' + head_photo + '&wx_number=' + wx_number + '&gender=' + gender + '&rate=' + rate
       });
     })
     .catch(console.error);
