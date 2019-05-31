@@ -50,7 +50,7 @@
   <swiper-item>
     <scroll-view scroll-y="true">
       <view class="cu-list menu-avatar">
-      <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer' wx:if="{{item.rate>=80}}">
+      <view class="cu-item" wx:for="{{items3}}" data-index="{{index}}" bindtap='soul_answer' wx:if="{{item.rate>=50}}">
         <view class="cu-avatar round lg" style="background-image:url({{item.head_photo}});"></view>
         <view class="content">
           <view class="text-grey">{{item.nickname}}|

@@ -1,6 +1,6 @@
 <!--pages/reply/result/result.wxml {{head_photo}}-->
 <view class='body' style='background: url(https://7770-wp-test-32ff30-1259082207.tcb.qcloud.la/image/questionandshare/question_background.jpg?sign=00925f460e7e23b1602a7d863e45d8e2&t=1556415673)'>
-  <block wx:if='{{rate < 80}}'>
+  <block wx:if='{{rate < 50}}'>
   <view class='description'>
     <text class='title'>你与</text>
     <view class='avatar'>
@@ -8,12 +8,12 @@
     </view>
     <text class='title'>{{nickname}} 的灵魂契合程度</text>
     <text class='title'> {{rate}}%</text>
-    <text class='title'>契合度低于80%无法获取对方的联系方式</text>
+    <text class='title'>契合度低于50%无法获取对方的联系方式</text>
   </view>
   <image src="https://7770-wp-test-32ff3-1259348553.tcb.qcloud.la/image/WechatIMG110.jpeg?sign=6fec7e050bee34094a7561cb7c6ec253&t=1559225508" mode="widthFix" class='photo'></image>
   <!--button bindtap='homePage' class='cu-btn block bg-blue margin-tb-sm lg'>返回首页</button-->
   </block>
-  <block wx:if='{{rate >= 80}}'>
+  <block wx:if='{{rate >= 50}}'>
   <text class='title'> 恭喜你与对方的灵魂契合度为{{rate}}% </text>
   <text class='title'>对方的微信号码为：{{wx_number}}</text>
   <image src="https://7770-wp-test-32ff3-1259348553.tcb.qcloud.la/image/WechatIMG109.jpeg?sign=1b566441c28030e96bdaca3a595d1f59&t=1559225524" mode="widthFix" class='photo'></image>
