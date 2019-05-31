@@ -4,8 +4,8 @@ const app = getApp()
 var nickName; //出题者昵称
 var avatarUrl; //出题者头像
 var questionnaireId;
-var visitedArr = new Array();
-var visitedIndex = 0;
+// var visitedArr = new Array();
+// var visitedIndex = 0;
 //当前题号
 var current_number = 1; 
 var max_number = 1;
@@ -38,14 +38,15 @@ Date.prototype.Format = function (fmt) { //author: meizz
 // 随机获取某个题目id
 function getId()
 {
+  // 记录访问过的id会影响性能，删掉
   var randomId = (Math.round(Math.random() * (question_number - 1)) + 1).toString();
   //已经浏览过此记录
-  while(visitedArr.indexOf(randomId)>-1)
-  {
-    randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
-  }
-  visitedArr[visitedIndex] = randomId;
-  visitedIndex++;
+  // while(visitedArr.indexOf(randomId)>-1)
+  // {
+  //     randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
+  // }
+  // visitedArr[visitedIndex] = randomId;
+  // visitedIndex++;
   return randomId;
 }
 
@@ -270,8 +271,8 @@ Page({
     })
     question_number = options.question_number
     questions = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
-    visitedArr = new Array();
-    visitedIndex = 0;
+    // visitedArr = new Array();
+    // visitedIndex = 0;
     current_number = 1;
     max_number = 1;
     var id = getId();

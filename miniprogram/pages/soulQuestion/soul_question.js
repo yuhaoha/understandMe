@@ -1,7 +1,7 @@
 // pages/question/question.js
 //浏览过的题目编号数组，包括做过的和换掉的，目的是换一题可以遇到没做过的题
-var visitedArr = new Array();
-var visitedIndex = 0;
+// var visitedArr = new Array();
+// var visitedIndex = 0;
 //当前题号
 var current_number = 1; 
 var max_number = 1;
@@ -23,12 +23,12 @@ function getId()
 {
   var randomId = (Math.round(Math.random() * (question_number - 1)) + 1).toString();
   //已经浏览过此记录
-  while(visitedArr.indexOf(randomId)>-1)
-  {
-    randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
-  }
-  visitedArr[visitedIndex] = randomId;
-  visitedIndex++;
+  // while(visitedArr.indexOf(randomId)>-1)
+  // {
+  //   randomId = (Math.round(Math.random() * (15 - 1)) + 1).toString();
+  // }
+  // visitedArr[visitedIndex] = randomId;
+  // visitedIndex++;
   return randomId;
 }
 
@@ -200,8 +200,8 @@ Page({
   //灵魂匹配出题提交按钮
   submit_button:function(){
     addQuestionnaire();
-    visitedArr = [];
-    visitedIndex = 0;
+    // visitedArr = [];
+    // visitedIndex = 0;
       //当前题号
     current_number = 1;
     max_number = 1;
@@ -214,8 +214,8 @@ Page({
   },
   //灵魂匹配出题取消
   cancel_button:function(){
-    visitedArr = [];
-    visitedIndex = 0;
+    // visitedArr = [];
+    // visitedIndex = 0;
     //当前题号
     current_number = 1;
     max_number = 1;
@@ -329,8 +329,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    visitedArr = [];
-    visitedIndex = 0;
+    // visitedArr = [];
+    // visitedIndex = 0;
     //当前题号
     current_number = 1;
     max_number = 1;

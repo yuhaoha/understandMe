@@ -6,7 +6,7 @@
               <text class ="text-name">第{{item.number}}题：{{item.title}} </text> 
             </view>
             <view class='xx-text-name'> 
-              <text class ="jian-text">正确答案：{{item.answer[item.choice]}}</text> 
+              <text class ="jian-text">ta的答案：{{item.answer[item.choice]}}</text> 
             </view>
             <view class='xx-text-name'> 
               <text class ="jian-text">我的答案：{{item.answer[item.myChoice]}}</text> 
